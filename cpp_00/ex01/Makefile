@@ -8,7 +8,7 @@ NAME = phonebook
 #                                    SRCS                                      #
 #··············································································#
 
-SRCS = main.cpp add.cpp search.cpp
+SRCS = main.cpp add.cpp search.cpp Contact.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 #··············································································#

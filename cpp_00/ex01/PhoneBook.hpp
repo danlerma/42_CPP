@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add.cpp                                            :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 17:02:05 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/06 17:02:07 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/04/06 17:02:11 by dlerma-c          #+#    #+#             */
+/*   Updated: 2022/04/06 17:02:31 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"PhoneBook.hpp"
+#ifndef PHONEBOOK_HPP
 
-void	add(Contact contacts)
+# define PHONEBOOK_HPP
+
+# include "Contact.hpp"
+
+class	PhoneBook
 {
-	(void)contacts;
-}
+	Contact	contacts[8];
+	public:
+		PhoneBook();
+};
+
+#endif
