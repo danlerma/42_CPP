@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 17:01:55 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/06 17:51:06 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/04/08 16:43:24 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ int	main(void)
 {
 	Contact	contacts;
 
-	contacts.name = "Dan";
-	std:: cout << "Name: " << contacts.name << std:: endl;
+	contacts.setName("Dan");
+	std:: cout << "Name: " << contacts.getName() << std:: endl;
+	contacts.setName("LOOOL");
+	std:: cout << "Name: " << contacts.getName() << std:: endl;
 	// PhoneBook	book;
 	// std:: string	menu;
 

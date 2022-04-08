@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 17:40:30 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/06 18:04:10 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/04/08 16:42:44 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,38 +17,64 @@
 //constructor
 Contact::Contact()
 {
+	std:: cout << "constructor" << this->name << std::endl;
 	return ;
 }
 //destructor
 Contact::~Contact()
 {
+	std:: cout << "destructor" << std::endl;
 	return ;
 }
 
-// //getter
-// std::string getName()
-// {
-// 	return name;
-// };
-// std::string getLastname()
-// {
-// 	return last_name;
-// };
-// std::string getNickname()
-// {
-// 	return nickname;
-// };
-// std::string getPhone()
-// {
-// 	return phone;
-// };
-// std::string getSecret()
-// {
-// 	return secret;
-// };
-// //setter
-// void setName(std::string n){name = n;};
-// void setLastname(std::string ln){last_name = ln;};
-// void setNickname(std::string nn){nickname = nn;};
-// void setPhone(std::string p){phone = p;};
-// void setSecret(std::string s){secret = s;};
+
+//getter
+std::string	Contact::getName()
+{
+	return this->name;
+}
+
+std::string	Contact::getLastname()
+{
+	return this->last_name;
+};
+std::string	Contact::getNickname()
+{
+	return this->nickname;
+}
+
+std::string	Contact::getPhone()
+{
+	return this->phone;
+}
+
+std::string	Contact::getSecret()
+{
+	return this->secret;
+}
+
+//setter
+void Contact::setName(std::string n)
+{
+	name = n;
+}
+
+void Contact::setLastname(std::string ln)
+{
+	last_name = ln;
+}
+
+void Contact::setNickname(std::string nn)
+{
+	nickname = nn;
+}
+
+void Contact::setPhone(std::string p)
+{
+	phone = p;
+}
+
+void Contact::setSecret(std::string s)
+{
+	secret = s;
+}
