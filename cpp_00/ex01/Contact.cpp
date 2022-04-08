@@ -6,27 +6,23 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 17:40:30 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/08 16:42:44 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/04/08 19:58:16 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
-#include <iostream>
-#include <string>
-
+#include "tool.hpp"
 //constructor
 Contact::Contact()
 {
-	std:: cout << "constructor" << this->name << std::endl;
+	// std:: cout << "constructor contact" << this->name << std::endl;
 	return ;
 }
 //destructor
 Contact::~Contact()
 {
-	std:: cout << "destructor" << std::endl;
+	// std:: cout << "destructor contact" << std::endl;
 	return ;
 }
-
 
 //getter
 std::string	Contact::getName()

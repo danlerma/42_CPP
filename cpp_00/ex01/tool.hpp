@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   search.cpp                                         :+:      :+:    :+:   */
+/*   tool.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 17:02:08 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/08 19:51:37 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/04/08 19:35:52 by dlerma-c          #+#    #+#             */
+/*   Updated: 2022/04/08 19:52:44 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tool.hpp"
+#ifndef TOOL_H
 
-void	search(PhoneBook book)
-{
-	(void)book;
-}
+# define TOOL_H
+
+# include"PhoneBook.hpp"
+# include <string>
+# include <iostream>
+
+void	add(PhoneBook book);
+void	search(PhoneBook book);
+
+#endif

@@ -6,13 +6,13 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 17:02:05 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/06 17:02:07 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/04/08 19:51:40 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"PhoneBook.hpp"
+# include "tool.hpp"
 
-void	add(Contact contacts)
+void	add(PhoneBook book)
 {
-	(void)contacts;
+	(void)book;
 }

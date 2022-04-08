@@ -6,40 +6,28 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 17:01:55 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/08 16:43:24 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/04/08 19:59:06 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include"PhoneBook.hpp"
-#include "Contact.hpp"
-#include <string>
-#include <iostream>
-
-void add(Contact contacts);
-void search(Contact contacts);
+#include "tool.hpp"
 
 int	main(void)
 {
-	Contact	contacts;
+	PhoneBook	book;
+	std:: string	menu;
 
-	contacts.setName("Dan");
-	std:: cout << "Name: " << contacts.getName() << std:: endl;
-	contacts.setName("LOOOL");
-	std:: cout << "Name: " << contacts.getName() << std:: endl;
-	// PhoneBook	book;
-	// std:: string	menu;
-
-	// std:: cout << "MENU\n\tADD\n\tSEARCH\n\tEXIT\n" << "->\t";
-	// std:: cin >> menu;
-	// while (menu != "EXIT")
-	// {
-	// 	if (menu == "ADD")
-	// 		add(book.contacts[1]);
-	// 	else if (menu == "SEARCH")
-	// 		search(book.contacts);
-	// 	else if (menu != "EXIT")
-	// 		std:: cout << "Please, type ADD, SEARCH or EXIT.\n" << "->\t";
-	// 	std:: cin >> menu;
-	// }
-	// std:: cout << "EXIT\n";
+	std:: cout << "-------------MENU-------------\n\n->\tADD\n->\tSEARCH\n->\tEXIT\n" << "\n-> ";
+	std:: cin >> menu;
+	while (menu != "EXIT")
+	{
+		if (menu == "ADD")
+			add(book);
+		else if (menu == "SEARCH")
+			search(book);
+		else if (menu != "EXIT")
+			std:: cout << "\nPlease, type ADD, SEARCH or EXIT.\n" << "-> ";
+		std:: cin >> menu;
+	}
+	std:: cout << "-------------EXIT-------------\n";
 }
