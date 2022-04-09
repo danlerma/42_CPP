@@ -14,20 +14,29 @@
 
 int	main(void)
 {
+	int	pos = 0;
 	PhoneBook	book;
 	std:: string	menu;
 
 	std:: cout << "-------------MENU-------------\n\n->\tADD\n->\tSEARCH\n->\tEXIT\n" << "\n-> ";
 	std:: cin >> menu;
+	std:: cout << std:: endl;
 	while (menu != "EXIT")
 	{
 		if (menu == "ADD")
-			add(book);
+		{
+			add(&book, pos);
+			pos++;
+			if (pos == 8)
+				pos = 0;
+		}
 		else if (menu == "SEARCH")
 			search(book);
 		else if (menu != "EXIT")
 			std:: cout << "\nPlease, type ADD, SEARCH or EXIT.\n" << "-> ";
+		std:: cout << "-------------MENU-------------\n\n->\tADD\n->\tSEARCH\n->\tEXIT\n" << "\n-> ";
 		std:: cin >> menu;
+		std:: cout << std:: endl;
 	}
 	std:: cout << "-------------EXIT-------------\n";
 }
