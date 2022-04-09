@@ -17,9 +17,11 @@
 # include"PhoneBook.hpp"
 # include <string>
 # include <iomanip>
+# include <ctype.h>
+# include <stdlib.h>
 # include <iostream>
 
 void	add(PhoneBook *book, int pos);
-void	search(PhoneBook book);
+void	search(PhoneBook book, int num);
 
 #endif

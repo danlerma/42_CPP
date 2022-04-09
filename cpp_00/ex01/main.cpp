@@ -15,11 +15,12 @@
 int	main(void)
 {
 	int	pos = 0;
+	int	num = 0;
 	PhoneBook	book;
 	std:: string	menu;
 
 	std:: cout << "-------------MENU-------------\n\n->\tADD\n->\tSEARCH\n->\tEXIT\n" << "\n-> ";
-	std:: cin >> menu;
+	std:: getline(std:: cin, menu);
 	std:: cout << std:: endl;
 	while (menu != "EXIT")
 	{
@@ -28,14 +29,19 @@ int	main(void)
 			add(&book, pos);
 			pos++;
 			if (pos == 8)
+			{
 				pos = 0;
+				num = 8;
+			}
+			if (num != 8)
+				num++;
 		}
 		else if (menu == "SEARCH")
-			search(book);
+			search(book, num);
 		else if (menu != "EXIT")
 			std:: cout << "\nPlease, type ADD, SEARCH or EXIT.\n" << "-> ";
 		std:: cout << "-------------MENU-------------\n\n->\tADD\n->\tSEARCH\n->\tEXIT\n" << "\n-> ";
-		std:: cin >> menu;
+		std:: getline(std:: cin, menu);
 		std:: cout << std:: endl;
 	}
 	std:: cout << "-------------EXIT-------------\n";
