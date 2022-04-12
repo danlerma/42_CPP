@@ -12,6 +12,10 @@ int	Account::_totalNbWithdrawals = 0;
 //constructor
 Account::Account(void)
 {
+	this->_accountIndex = Account::_nbAccounts - 1;
+	this->_amount = 0;
+	this->_nbWithdrawals = 0;
+	this->_nbDeposits = 0;
 	return ;
 }
 Account::Account(int initial_deposit)
@@ -20,6 +24,8 @@ Account::Account(int initial_deposit)
 	Account::_nbAccounts++;
 	this->_amount = initial_deposit;
 	this->_accountIndex = Account::_nbAccounts - 1;
+	this->_nbWithdrawals = 0;
+	this->_nbDeposits = 0;
 	std:: cout << "[TIME] index:" << this->_accountIndex
 			<< ";amount:" << this->_amount
 			<< ";created" << std:: endl;
@@ -57,7 +63,6 @@ int	Account::getNbWithdrawals()
 
 void	Account::displayAccountsInfos( void )
 {
-	//<< Account::_totalAmount
 	std:: cout << "[TIME] accounts:" << getNbAccounts()
 			<< ";total:" << getTotalAmount()
 			<< ";deposits:" << getNbDeposits() 
@@ -66,15 +71,26 @@ void	Account::displayAccountsInfos( void )
 
 void	Account::makeDeposit(int deposit)
 {
-	(void)deposit;
-	// Account::_totalAmount += deposit;
-	// Account::_totalNbDeposits++;
+	Account::_totalNbDeposits++;
+	Account::_totalAmount += deposit;
+	this->_nbDeposits++;
+	std:: cout << "[TIME] index:" << this->_accountIndex
+			<< ";p_amount:" << this->_amount
+			<< ";deposit:" << deposit
+			<< ";amount:" << this->_amount + deposit
+			<< ";nb_deposits:" << this->_nbDeposits
+			<< std:: endl;
+	this->_amount += deposit;
 }
 
 bool	Account::makeWithdrawal(int withdrawal)
 {
-	(void)withdrawal;
-	std:: cout << "LOOOL WITH" << std:: endl;
+	if (withdrawal > this->_amount)
+	{
+		std:: cout << "refused" << std:: endl;
+		return false;
+	}
+	std:: cout << "LOOOL WITH " << withdrawal << std:: endl;
 	return true;
 }
 
