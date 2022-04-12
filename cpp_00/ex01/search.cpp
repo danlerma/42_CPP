@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 17:02:08 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/08 19:51:37 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/04/12 18:30:11 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	show_one_contact(int num, PhoneBook book)
 			}
 		}
 		pos = stoi(str, nullptr, 10) - 1;
-		if (pos < num)
+		if (pos < num && pos >= 0)
 		{
 			std:: cout << "Name: " << book.contacts[pos].getName() << std:: endl;
 			std:: cout << "Last name: " << book.contacts[pos].getLastname() << std:: endl;
