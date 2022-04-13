@@ -1,43 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/13 12:24:19 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/13 14:42:54 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/04/13 12:20:04 by dlerma-c          #+#    #+#             */
+/*   Updated: 2022/04/13 13:54:58 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Zombie.hpp"
+#include<string.h>
+#include<iostream>
 
-//constructor
-Zombie::Zombie()
+Zombie* zombieHorde( int N, std::string name );
+
+int	main(void)
 {
+	Zombie	zombie("Nicolas");
+	Zombie	*new_zombie;
 
-}
-
-Zombie::Zombie(std::string name)
-{
-	this->name = name;
-}
-
-//destructor
-Zombie::~Zombie()
-{
-	cout << "The zombie " << this->name << " has been destroyed." << endl;
-	return ;
-}
-
-//setter
-void Zombie::setZombie(std::string name)
-{
-	this->name = name;
-}
-
-//functions
-void	Zombie::announce(void)
-{
-	cout << this->name << ": BraiiiiiiinnnzzzZ..." << endl;
+	zombie.announce();
+	new_zombie = zombieHorde(5, "HORDAAAAA");
+	delete [] new_zombie;
+	return (0);
 }

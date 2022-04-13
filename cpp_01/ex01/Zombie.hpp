@@ -1,43 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/13 12:24:19 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/13 14:42:54 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/04/13 12:23:19 by dlerma-c          #+#    #+#             */
+/*   Updated: 2022/04/13 13:59:18 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Zombie.hpp"
+#ifndef ZOMBIE_H
 
-//constructor
-Zombie::Zombie()
+#define ZOMBIE_H
+
+# include <string.h>
+# include <iostream>
+using std:: cout;
+using std:: endl;
+
+class Zombie
 {
+private:
+	std::string	name;
+public:
+	Zombie();
+	Zombie(std::string name);
+	~Zombie();
+	//setter
+	void	setZombie(std::string name);
+	//functions
+	void	announce(void);
+};
 
-}
-
-Zombie::Zombie(std::string name)
-{
-	this->name = name;
-}
-
-//destructor
-Zombie::~Zombie()
-{
-	cout << "The zombie " << this->name << " has been destroyed." << endl;
-	return ;
-}
-
-//setter
-void Zombie::setZombie(std::string name)
-{
-	this->name = name;
-}
-
-//functions
-void	Zombie::announce(void)
-{
-	cout << this->name << ": BraiiiiiiinnnzzzZ..." << endl;
-}
+#endif
