@@ -102,6 +102,7 @@ void	Account::makeDeposit(int deposit)
 	time(&c_time);
 	time_info = localtime(&c_time);
 	strftime(timeString, sizeof(timeString), "[%Y%m%d_%H%M%S]", time_info);
+	this->_nbDeposits++;
 	std:: cout << timeString
 			<< " index:" << this->_accountIndex
 			<< ";p_amount:" << this->_amount
@@ -111,7 +112,6 @@ void	Account::makeDeposit(int deposit)
 			<< std:: endl;
 	Account::_totalNbDeposits++;
 	Account::_totalAmount += deposit;
-	this->_nbDeposits++;
 	this->_amount += deposit;
 }
 
