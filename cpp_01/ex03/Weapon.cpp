@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/13 17:05:01 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/13 19:12:39 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/04/13 18:08:19 by dlerma-c          #+#    #+#             */
+/*   Updated: 2022/04/13 18:10:07 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<string.h>
-#include<iostream>
-
-int	main(void)
+#ifndef "Weapon.hpp"
+//constructor
+Weapon::Weapon(/* args */)
 {
-	std::string	str = "HI THIS IS BRAIN";
-	std::string	*stringPTR = &str;
-	std::string	&stringREF = str;
-
-	std:: cout << str << &str << std:: endl;
-	std:: cout << stringPTR << std:: endl;
-	std:: cout << &stringREF << std:: endl;
-	return (0);
+}
+//destructor
+Weapon::~Weapon()
+{
 }

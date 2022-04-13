@@ -5,22 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/13 17:05:01 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/13 19:12:39 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/04/13 12:20:04 by dlerma-c          #+#    #+#             */
+/*   Updated: 2022/04/13 13:54:58 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include"Zombie.hpp"
 #include<string.h>
 #include<iostream>
 
+Zombie* zombieHorde( int N, std::string name );
+
 int	main(void)
 {
-	std::string	str = "HI THIS IS BRAIN";
-	std::string	*stringPTR = &str;
-	std::string	&stringREF = str;
+	Zombie	zombie("Nicolas");
+	Zombie	*new_zombie;
 
-	std:: cout << str << &str << std:: endl;
-	std:: cout << stringPTR << std:: endl;
-	std:: cout << &stringREF << std:: endl;
+	zombie.announce();
+	new_zombie = zombieHorde(5, "HORDAAAAA");
+	delete [] new_zombie;
 	return (0);
 }

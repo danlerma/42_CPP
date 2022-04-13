@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/13 17:05:01 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/13 19:12:39 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/04/13 18:08:58 by dlerma-c          #+#    #+#             */
+/*   Updated: 2022/04/13 18:12:51 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<string.h>
-#include<iostream>
+#ifndef WEAPON_H
 
-int	main(void)
+#define WEAPON_H
+
+# include<string>
+# include<iostream>
+
+class Weapon
 {
-	std::string	str = "HI THIS IS BRAIN";
-	std::string	*stringPTR = &str;
-	std::string	&stringREF = str;
+private:
+	std::string	type;
+public:
+	Weapon();
+	~Weapon();
+	//getter
+	std::string	getType();
+	//setter
+	void	setType(std::string type);
+};
 
-	std:: cout << str << &str << std:: endl;
-	std:: cout << stringPTR << std:: endl;
-	std:: cout << &stringREF << std:: endl;
-	return (0);
-}
+
+
+
+#endif
