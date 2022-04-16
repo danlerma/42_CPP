@@ -14,13 +14,11 @@
 //constructor
 Contact::Contact()
 {
-	// std:: cout << "constructor contact" << this->name << std::endl;
 	return ;
 }
 //destructor
 Contact::~Contact()
 {
-	// std:: cout << "destructor contact" << std::endl;
 	return ;
 }
 
@@ -33,7 +31,7 @@ std::string	Contact::getName()
 std::string	Contact::getLastname()
 {
 	return this->last_name;
-};
+}
 std::string	Contact::getNickname()
 {
 	return this->nickname;
