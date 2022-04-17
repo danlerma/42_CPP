@@ -3,31 +3,26 @@
 static std::string	find_strings(std::string str, char *s1, char *s2)
 {
 	std::string	str2;
-	std::string s;
 	size_t	pos;
+	std::string s;
 
-	(void)s2;
-	str2 = str;
 	pos = str.find(s1);
+	str2 = str;
 	while (pos != std::string::npos)
 	{
 		if (pos == 0)
 		{
 			str2 = s2;
 			str2 += str.substr(strlen(s1), str.length() - strlen(s1));
-			cout << str.length() - strlen(s1) << endl;
 		}
 		else
 		{
-			str2+=str2.substr(str2.length(), pos);
+			str2 = str.substr(0, pos);
 			str2 += s2;
+			str2 += str.substr(str.substr(0, pos).length() + strlen(s1), str.length());
 		}
-		cout << str2 << "ñ" <<endl;
+		str = str2;
 		pos = str.find(s1);
-		str = str.substr(pos, str.length());
-		cout << "STR ORIGINAL: " << str << " POS: " << std::string::npos
-			<<" STRLEN: " << str2.length()<< endl;
-		std::cin >> s;
 	}
 	return(str2);
 }
