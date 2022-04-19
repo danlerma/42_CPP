@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/13 18:08:58 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/19 17:16:38 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/04/19 16:36:43 by dlerma-c          #+#    #+#             */
+/*   Updated: 2022/04/19 16:37:03 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_H
+#include"Fixed.hpp"
 
-#define WEAPON_H
-
-# include<string>
-# include<iostream>
-
-using	std::cout;
-using	std::endl;
-
-class Weapon
+class Fixed
 {
 private:
-	std::string	_type;
+	/* data */
 public:
-	//constructor
-	Weapon();
-	Weapon(std::string type);
-	//destructor
-	~Weapon();
-	//getter
-	std::string	getType() const;
-	//setter
-	void	setType(std::string type);
+	Fixed(/* args */);
+	~Fixed();
 };
 
-#endif
+Fixed::Fixed(/* args */)
+{
+}
+
+Fixed::~Fixed()
+{
+}
+

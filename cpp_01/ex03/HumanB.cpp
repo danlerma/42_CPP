@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 17:01:54 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/19 16:06:41 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/04/19 17:23:24 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ void	HumanB::setWeapon(Weapon club)
 //functions
 void	HumanB::attack()
 {
-	cout << this->name << "  attacks with his " << this->weapon->getType() << endl;
+	if (this->weapon != NULL)
+		cout << this->name << "  attacks with his " << this->weapon->getType() << endl;
 }

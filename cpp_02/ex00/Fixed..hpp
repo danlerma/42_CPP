@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Fixed..hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/13 18:08:58 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/19 17:16:38 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/04/19 16:37:07 by dlerma-c          #+#    #+#             */
+/*   Updated: 2022/04/19 16:38:18 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_H
+#ifndef FIXED_H
 
-#define WEAPON_H
-
-# include<string>
-# include<iostream>
+#define FIXED_H
+# include <string>
+# include <iostream>
+# include <fstream>
 
 using	std::cout;
 using	std::endl;
-
-class Weapon
-{
-private:
-	std::string	_type;
-public:
-	//constructor
-	Weapon();
-	Weapon(std::string type);
-	//destructor
-	~Weapon();
-	//getter
-	std::string	getType() const;
-	//setter
-	void	setType(std::string type);
-};
 
 #endif
