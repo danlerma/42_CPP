@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 12:01:43 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/19 15:45:50 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/04/19 16:24:13 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,17 @@ void	Karen::complain(std::string level)
 	{
 		if (str[i] == level)
 		{
-			(this->*(fun[i]))();
+			switch (i)
+			{
+				case 0:
+					(this->*(fun[0]))();
+				case 1:
+					(this->*(fun[1]))();
+				case 2:
+					(this->*(fun[2]))();
+				case 3:
+					(this->*(fun[3]))();
+			}
 			return ;
 		}
 	}
