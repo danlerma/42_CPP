@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   Karen.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/14 15:40:24 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/19 16:06:19 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/04/18 11:57:03 by dlerma-c          #+#    #+#             */
+/*   Updated: 2022/04/19 13:37:38 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_H
+#ifndef KAREN_H
 
-#define HUMANA_H
+# define KAREN_H
 
-# include "Weapon.hpp"
+# include <string.h>
+# include <iostream>
+# include <fstream>
 
-class HumanA
+using	std::cout;
+using	std::endl;
+
+class	Karen
 {
 private:
-	Weapon	weapon;
-	std::string	name;
+	void	debug(void);
+	void	info(void);
+	void	warning(void);
+	void	error(void);
 public:
 	//constructor
-	HumanA(std::string name, Weapon club);
-	HumanA();
+	Karen();
 	//destructor
-	~HumanA();
+	~Karen();
 	//functions
-	void	attack();
+	void	complain(std::string level);
+	typedef void	(Karen::*someFuncions)();
 };
 
 #endif

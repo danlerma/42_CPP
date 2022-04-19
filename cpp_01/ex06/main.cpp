@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/14 15:40:24 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/19 16:06:19 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/04/13 12:20:04 by dlerma-c          #+#    #+#             */
+/*   Updated: 2022/04/19 15:47:17 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_H
+#include"Karen.hpp"
 
-#define HUMANA_H
-
-# include "Weapon.hpp"
-
-class HumanA
+int	main(int argc, char **argv)
 {
-private:
-	Weapon	weapon;
-	std::string	name;
-public:
-	//constructor
-	HumanA(std::string name, Weapon club);
-	HumanA();
-	//destructor
-	~HumanA();
-	//functions
-	void	attack();
-};
+	Karen	*karen = new Karen();
+	std::string	level[4];
 
-#endif
+	if (argc > 1)
+		for (int i = 1; argv[i]; i++)
+		{
+			karen->complain(argv[i]);
+			cout << endl;
+		}
+	delete karen;
+	return (0);
+}
