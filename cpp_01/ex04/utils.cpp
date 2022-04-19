@@ -38,7 +38,10 @@ void	read_file(char **argv)
 	while (!in.eof())
 	{
 		getline(in, str);
-		str2 = find_strings(str, argv[2], argv[3]);
+		if (strcmp(argv[2], argv[3]) != 0)
+			str2 = find_strings(str, argv[2], argv[3]);
+		else
+			str2 = str;
 		out << str2 << endl;
 	}
 	in.close();

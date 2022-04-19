@@ -1,22 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Karen.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/13 12:20:04 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/19 15:49:07 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/04/18 11:57:03 by dlerma-c          #+#    #+#             */
+/*   Updated: 2022/04/19 13:37:38 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"utils.hpp"
+#ifndef KAREN_H
 
-int	main(int argc, char **argv)
+# define KAREN_H
+
+# include <string.h>
+# include <iostream>
+# include <fstream>
+
+using	std::cout;
+using	std::endl;
+
+class	Karen
 {
-	if (argc != 4)
-		cout << "Invalid arguments" << endl;
-	else if (check_errors(argv) == 0)
-		read_file(argv);
-	return (0);
-}
+private:
+	void	debug(void);
+	void	info(void);
+	void	warning(void);
+	void	error(void);
+public:
+	//constructor
+	Karen();
+	//destructor
+	~Karen();
+	//functions
+	void	complain(std::string level);
+	typedef void	(Karen::*someFuncions)();
+};
+
+#endif
