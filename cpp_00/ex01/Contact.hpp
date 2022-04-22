@@ -14,6 +14,7 @@
 
 # define CONTACT_H
 # include <string>
+
 class	Contact
 {
 private:

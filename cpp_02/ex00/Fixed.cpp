@@ -12,29 +12,41 @@
 
 #include"Fixed.hpp"
 
-Fixed::Fixed(/* args */)
+const int	Fixed::bits = 0;
+//constructor
+Fixed::Fixed()
 {
-}
-
-Fixed::Fixed(int num)
-{
-	this->num = num;
-	cout << "COMSRUCTOR NORML " << this->num << endl;
+	cout << "Default constructor called." << endl;
 }
 
 Fixed::Fixed(const Fixed& obj)
 {
-	this->num = obj.num;
-	cout << "COPPIA RARA " << this->num << endl;
+	cout << "Copy constructor called." << endl;
+	this->rawBits = obj.getRawBits();
 }
 
+//destructor
 Fixed::~Fixed()
 {
+	cout << "Destructor called." << endl;
 }
-void Fixed::setNum(int n)
-{
-	cout << "cambiar el num " << this->num << endl;
-	this->num = n;
-	cout << "ahora ->" << this->num << endl;
 
+//operator
+Fixed&	Fixed::operator=(const Fixed& obj)
+{
+	cout << "Assignation operator called." << endl;
+	this->rawBits = obj.getRawBits();
+	return (*this);
+}
+
+//getter and setter
+int	Fixed::getRawBits() const
+{
+	cout << "getRawBits member function called" << endl;
+	return (this->rawBits);
+}
+
+void	Fixed::setRawBits(int const raw)
+{
+	this->rawBits = raw;
 }

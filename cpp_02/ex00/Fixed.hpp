@@ -23,13 +23,18 @@ using	std::endl;
 class	Fixed
 {
 private:
+	const static int	bits;
+	int	rawBits;
 public:
-	int	num;
+	//constructor and destructor
 	Fixed();
-	Fixed(int num);
 	Fixed(const Fixed& obj);
 	~Fixed();
-	void	setNum(int n);
+	//operators
+	Fixed& operator=(const Fixed& obj);
+	//getter and setter
+	int getRawBits(void) const;
+	void setRawBits (int const raw);
 };
 
 #endif
