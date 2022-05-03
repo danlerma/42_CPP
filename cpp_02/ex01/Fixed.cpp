@@ -12,7 +12,7 @@
 
 #include"Fixed.hpp"
 
-const int	Fixed::bits = 0;
+const int	Fixed::bits = 8;
 //constructor
 Fixed::Fixed()
 {
@@ -24,6 +24,18 @@ Fixed::Fixed(const Fixed& obj)
 {
 	cout << "Copy constructor called." << endl;
 	this->rawBits = obj.getRawBits();
+}
+
+Fixed::Fixed(const int num)
+{
+	cout << "Int constructor called." << endl;
+	this->rawBits = num;
+}
+
+Fixed::Fixed(const float num)
+{
+	cout << "Float constructor called" << endl;
+	this->rawBits = (int)num;
 }
 
 //destructor
@@ -43,11 +55,27 @@ Fixed&	Fixed::operator=(const Fixed& obj)
 //getter and setter
 int	Fixed::getRawBits() const
 {
-	cout << "getRawBits member function called" << endl;
 	return (this->rawBits);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
 	this->rawBits = raw;
+}
+
+//functons
+float Fixed::toFloat(void) const
+{
+	cout << this->rawBits << endl;
+	return (0);
+}
+
+int Fixed::toInt(void) const
+{
+	return ((int) this->rawBits);
+}
+
+std::ostream &operator<<(std::ostream &obj, const Fixed& mc) {
+	obj << mc.toFloat();
+	return obj;
 }
