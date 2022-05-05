@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 16:36:43 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/20 19:36:16 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/05 15:46:24 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,7 @@ void	Fixed::setRawBits(int const raw)
 //functons
 float Fixed::toFloat(void) const
 {
-	cout << this->rawBits << endl;
-	return (0);
+	return ((float)this->rawBits / (1 << Fixed::bits));
 }
 
 int Fixed::toInt(void) const

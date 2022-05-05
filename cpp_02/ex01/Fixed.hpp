@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 16:37:07 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/04/20 19:37:00 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/05 15:37:17 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ public:
 	int toInt(void) const;
 };
 
-std::ostream &operator<<(std::ostream &obj, const Fixed& myClass);
+std::ostream &operator<<(std::ostream &obj, const Fixed& mc);
 
 #endif
