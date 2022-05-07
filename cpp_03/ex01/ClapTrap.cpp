@@ -20,6 +20,7 @@ ClapTrap::ClapTrap()
 	this->hitpoints = 10;
 	this->energy_points = 10;
 	cout << "ClapTrap default constructor: " << this->name << " created"<< endl;
+
 }
 
 ClapTrap::ClapTrap(std::string name)
@@ -43,7 +44,7 @@ ClapTrap::ClapTrap(const ClapTrap& obj)
 //destructor
 ClapTrap::~ClapTrap()
 {
-	cout << this->name << " destroyed." << endl;
+	cout << "ClapTrap " << this->name << " destroyed." << endl;
 }
 
 //operator
@@ -69,7 +70,7 @@ void ClapTrap::attack(std::string const & target)
 	if (this->hitpoints > 0)
 		cout << "ClapTrap " << this->name << " attack " << target << ", causing " << this->attack_damage << " points of damage!" << endl;
 	else
-		cout << this->name << " is dead. Can't do anything." << endl;
+		cout << "ClapTrap " << this->name << " is dead. Can't do anything." << endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
