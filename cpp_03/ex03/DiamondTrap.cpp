@@ -62,10 +62,7 @@ DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& obj)
 //functions
 void	DiamondTrap::attack(std::string const & target)
 {
-	if (this->hitpoints > 0)
-		cout << "DiamondTrap " << this->name << " attack " << target << ", causing " << this->attack_damage << " points of damage!" << endl;
-	else
-		cout << "DiamondTrap " << this->name << " is dead. Can't do anything." << endl;
+	this->ScavTrap::attack(target);
 }
 
 void	DiamondTrap::whoAmI()
