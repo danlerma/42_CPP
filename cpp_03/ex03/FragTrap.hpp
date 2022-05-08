@@ -3,7 +3,7 @@
 #define FRAGTRAP_H
 # include "ClapTrap.hpp"
 
-class FragTrap : virtual ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 public:
 	//constructor
