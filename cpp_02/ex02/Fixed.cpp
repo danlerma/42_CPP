@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 16:36:43 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/09 13:18:54 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/09 14:32:09 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,35 @@ void	Fixed::setRawBits(int const raw)
 	this->rawBits = raw;
 }
 
+//arithmetic operators
+Fixed	Fixed::operator++(int)
+{
+	Fixed	p(*this);
+
+	p.rawBits += 1;
+	return (p);
+}
+
+Fixed&	Fixed::operator++()
+{
+	this->rawBits += 1;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	p(*this);
+
+	p.rawBits -= 1;
+	return (p);
+}
+
+Fixed&	Fixed::operator--()
+{
+	this->rawBits -= 1;
+	return (*this);
+}
+
 //functions
 float Fixed::toFloat(void) const
 {
@@ -72,6 +101,21 @@ float Fixed::toFloat(void) const
 int Fixed::toInt(void) const
 {
 	return (this->rawBits >> Fixed::bits);
+}
+
+
+Fixed	Fixed::min(Fixed const&num1, Fixed const&num2)
+{
+	if (num1.getRawBits() > num2.getRawBits())
+		return (num2);
+	return (num1);
+}
+
+Fixed	Fixed::max(Fixed const&num1, Fixed const&num2)
+{
+	if (num1.getRawBits() > num2.getRawBits())
+		return (num1);
+	return (num2);
 }
 
 std::ostream &operator<<(std::ostream &obj, const Fixed& mc)

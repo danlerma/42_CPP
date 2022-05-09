@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 16:37:07 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/09 13:09:41 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/09 14:27:59 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,33 @@ public:
 	Fixed(const int num);
 	Fixed(const float num);
 	~Fixed();
-	//operators
-	Fixed& operator=(const Fixed& obj);
+	//comparison operators
+	Fixed&	operator=(const Fixed& obj);
+	Fixed	operator>(Fixed const&obj) const;
+	Fixed	operator<(Fixed const&obj) const;
+	Fixed	operator>=(Fixed const&obj) const;
+	Fixed	operator<=(Fixed const&obj) const;
+	Fixed	operator==(Fixed const&obj) const;
+	Fixed	operator!=(Fixed const&obj) const;
+	//arithmetic operators
+	Fixed	operator+(Fixed const&obj) const;
+	Fixed	operator-(Fixed const&obj) const;
+	Fixed	operator*(Fixed const&obj) const;
+	Fixed	operator/(Fixed const&obj) const;
+	Fixed	&operator++();
+	Fixed	operator++(int);
+	Fixed	&operator--();
+	Fixed	operator--(int);
 	//getter and setter
-	int getRawBits(void) const;
-	void setRawBits (int const raw);
+	int	getRawBits(void) const;
+	void	setRawBits (int const raw);
 	//functions
-	float toFloat(void) const;
-	int toInt(void) const;
+	float	toFloat(void) const;
+	int	toInt(void) const;
+	static Fixed	min(Fixed const&num1, Fixed const&num2);
+	static Fixed	max(Fixed const&num1, Fixed const&num2);
 };
 
-std::ostream &operator<<(std::ostream &obj, const Fixed& mc);
+std::ostream	&operator<<(std::ostream &obj, const Fixed& mc);
 
 #endif
