@@ -13,9 +13,16 @@ class Animal
 protected:
 	std::string type;
 public:
-	Animal(/* args */);
+	//constructor
+	Animal();
+	Animal(std::string name);
+	Animal(const Animal& obj);
+	//destructor
 	~Animal();
+	//operators
+	Animal& operator=(const Animal& obj);
+	//functions
+	void	makeSound();
 };
-
 
 #endif
