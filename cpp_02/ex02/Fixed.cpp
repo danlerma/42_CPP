@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 16:36:43 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/09 14:32:09 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/17 17:57:46 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,29 @@ const int	Fixed::bits = 8;
 //constructor
 Fixed::Fixed()
 {
-	cout << "Default constructor called." << endl;
 	this->rawBits = 0;
 }
 
 Fixed::Fixed(const Fixed& obj)
 {
-	cout << "Copy constructor called." << endl;
 	this->rawBits = obj.getRawBits();
 }
 
 Fixed::Fixed(const int num)
 {
-	cout << "Int constructor called." << endl;
 	this->rawBits = num << this->bits;
 }
 
 Fixed::Fixed(const float num)
 {
-	cout << "Float constructor called" << endl;
 	this->rawBits = roundf(num * (1 << this->bits));
 }
 
 //destructor
 Fixed::~Fixed()
 {
-	cout << "Destructor called." << endl;
 }
 
-//operator
-Fixed&	Fixed::operator=(const Fixed& obj)
-{
-	cout << "Assignation operator called." << endl;
-	this->rawBits = obj.getRawBits();
-	return (*this);
-}
 
 //getter and setter
 int	Fixed::getRawBits() const
@@ -63,7 +51,90 @@ void	Fixed::setRawBits(int const raw)
 	this->rawBits = raw;
 }
 
+//comparison operators
+Fixed&	Fixed::operator=(const Fixed& obj)
+{
+	this->rawBits = obj.getRawBits();
+	return (*this);
+}
+
+bool	Fixed::operator>(Fixed const&obj) const
+{
+	if (this->rawBits > obj.getRawBits())
+		return true;
+	else
+		return false;
+}
+
+bool	Fixed::operator<(Fixed const&obj) const
+{
+	if (this->rawBits < obj.getRawBits())
+		return true;
+	else
+		return false;
+}
+
+bool	Fixed::operator<=(Fixed const&obj) const
+{
+	if (this->rawBits <= obj.getRawBits())
+		return true;
+	else
+		return false;
+}
+
+bool	Fixed::operator>=(Fixed const&obj) const
+{
+	if (this->rawBits >= obj.getRawBits())
+		return true;
+	else
+		return false;
+}
+
+bool	Fixed::operator==(Fixed const&obj) const
+{
+	if (this->rawBits == obj.getRawBits())
+		return true;
+	else
+		return false;
+}
+
+bool	Fixed::operator!=(Fixed const&obj) const
+{
+	if (this->rawBits != obj.getRawBits())
+		return true;
+	else
+		return false;
+}
 //arithmetic operators
+
+Fixed	Fixed::operator+(Fixed const&obj) const
+{
+	Fixed	ret;
+
+	ret.setRawBits(obj.getRawBits() + this->getRawBits());
+	return (ret);
+}
+
+Fixed	Fixed::operator-(Fixed const&obj) const
+{
+	Fixed	ret;
+
+	ret.setRawBits(this->getRawBits() - obj.getRawBits());
+	return (ret);
+}
+
+Fixed	Fixed::operator*(Fixed const&obj) const
+{
+	Fixed	ret(this->toFloat() * obj.toFloat());
+	return (ret);
+}
+
+Fixed	Fixed::operator/(Fixed const&obj) const
+{
+	Fixed	ret(this->toFloat() / obj.toFloat());
+	return (ret);
+}
+
 Fixed	Fixed::operator++(int)
 {
 	Fixed	p(*this);

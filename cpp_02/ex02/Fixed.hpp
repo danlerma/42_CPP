@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 16:37:07 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/09 14:27:59 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/17 17:50:20 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,23 @@ public:
 	Fixed(const float num);
 	~Fixed();
 	//comparison operators
-	Fixed&	operator=(const Fixed& obj);
-	Fixed	operator>(Fixed const&obj) const;
-	Fixed	operator<(Fixed const&obj) const;
-	Fixed	operator>=(Fixed const&obj) const;
-	Fixed	operator<=(Fixed const&obj) const;
-	Fixed	operator==(Fixed const&obj) const;
-	Fixed	operator!=(Fixed const&obj) const;
+	Fixed&	operator=(const Fixed& obj); //
+	bool	operator>(Fixed const&obj) const;
+	bool	operator<(Fixed const&obj) const;
+	bool	operator>=(Fixed const&obj) const;
+	bool	operator<=(Fixed const&obj) const;
+	bool	operator==(Fixed const&obj) const;
+	bool	operator!=(Fixed const&obj) const;
 	//arithmetic operators
-	Fixed	operator+(Fixed const&obj) const;
+	Fixed	operator+(Fixed const&obj) const;//
 	Fixed	operator-(Fixed const&obj) const;
 	Fixed	operator*(Fixed const&obj) const;
 	Fixed	operator/(Fixed const&obj) const;
-	Fixed	&operator++();
-	Fixed	operator++(int);
-	Fixed	&operator--();
-	Fixed	operator--(int);
+	Fixed	&operator++(); //
+	Fixed	operator++(int); //
+	Fixed	&operator--(); //
+	Fixed	operator--(int); //
+
 	//getter and setter
 	int	getRawBits(void) const;
 	void	setRawBits (int const raw);
