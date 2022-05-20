@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:54:11 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/05 16:02:16 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/19 13:30:54 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ void ClapTrap::takeDamage(unsigned int amount)
 			this->hitpoints = 0;
 		cout << this->name << " now has " << this->hitpoints << " of HP." << endl;
 	}
+	else
+		cout << this->name << " is dead. Can't do anything." << endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
