@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:45:58 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/20 16:51:05 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/21 18:10:01 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ public:
 	Cat(std::string name);
 	Cat(const Cat& obj);
 	//destructor
-	~Cat();
+	virtual	~Cat();
 	//operators
 	Cat& operator=(const Cat& obj);
 	//functions
-	void	makeSound();
+	virtual void	makeSound() const;
 };
 
 #endif

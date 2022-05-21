@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:45:29 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/20 17:02:44 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/21 18:15:14 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,32 @@
 //constructor
 Animal::Animal()
 {
-	cout << "Default constructor called." << endl;
+	cout << "Animal: Default constructor called." << endl;
 	this->type = "Empty";
 }
 
 Animal::Animal(const Animal& obj)
 {
-	cout << "Copy constructor called." << endl;
+	cout << "Animal: Copy constructor called." << endl;
 	this->type = obj.getType();
 }
 
 Animal::Animal(std::string type)
 {
-	cout << "Int constructor called." << endl;
+	cout << "Animal: Type constructor called." << endl;
 	this->type = type;
 }
 
 //destructor
 Animal::~Animal()
 {
-	cout << "Destructor called." << endl;
+	cout << "Animal: Destructor called." << endl;
 }
 
 //operator
 Animal&	Animal::operator=(const Animal& obj)
 {
-	cout << "Assignation operator called." << endl;
+	cout << "Animal: Assignation operator called." << endl;
 	this->type = obj.type;
 	return (*this);
 }
@@ -54,4 +54,10 @@ std::string	Animal::getType() const
 void	Animal::setType(std::string type)
 {
 	this->type = type;
+}
+
+//functions
+void	Animal::makeSound() const
+{
+	cout << "Animal noise" << endl;
 }

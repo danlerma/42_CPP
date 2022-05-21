@@ -6,7 +6,7 @@
 #    By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/18 12:01:47 by dlerma-c          #+#    #+#              #
-#    Updated: 2022/04/19 16:35:00 by dlerma-c         ###   ########.fr        #
+#    Updated: 2022/05/21 18:22:06 by dlerma-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = animal
 #                                    SRCS                                      #
 #··············································································#
 
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 #··············································································#

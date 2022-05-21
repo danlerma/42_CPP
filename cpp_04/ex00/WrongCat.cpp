@@ -1,52 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongWrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 13:45:53 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/21 18:16:46 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/05/21 20:22:21 by dlerma-c          #+#    #+#             */
+/*   Updated: 2022/05/21 20:22:21 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Cat.hpp"
+#include"WrongCat.hpp"
 
 //constructor
-Cat::Cat() : Animal()
+WrongCat::WrongCat() : WrongAnimal()
 {
-	cout << "Cat: Default constructor called." << endl;
-	this->type = "Cat";
+	cout << "WrongCat: Default constructor called." << endl;
+	this->type = "WrongCat";
 }
 
-Cat::Cat(const Cat& obj) : Animal() 
+WrongCat::WrongCat(const WrongCat& obj) : WrongAnimal() 
 {
-	cout << "Cat: Copy constructor called." << endl;
+	cout << "WrongCat: Copy constructor called." << endl;
 	this->type = obj.getType();
 }
 
-Cat::Cat(std::string type) : Animal()
+WrongCat::WrongCat(std::string type) : WrongAnimal()
 {
-	cout << "Cat: Type constructor called." << endl;
+	cout << "WrongCat: Type constructor called." << endl;
 	this->type = type;
 }
 
 //destructor
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-	cout << "Cat: Destructor called." << endl;
+	cout << "WrongCat: Destructor called." << endl;
 }
 
 //operator
-Cat&	Cat::operator=(const Cat& obj)
+WrongCat&	WrongCat::operator=(const WrongCat& obj)
 {
-	cout << "Cat: Assignation operator called." << endl;
+	cout << "WrongCat: Assignation operator called." << endl;
 	this->type = obj.getType();
 	return (*this);
 }
 
 //functions
-void	Cat::makeSound() const
+void	WrongCat::makeSound() const
 {
 	cout << "Miau miau !" << endl;
 }

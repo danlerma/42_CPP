@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongWrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 13:45:33 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/21 18:10:10 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/05/21 20:19:07 by dlerma-c          #+#    #+#             */
+/*   Updated: 2022/05/21 20:19:07 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
+#ifndef WRONGWrongAnimal_H
 
-# define ANIMAL_H
+# define WRONGWrongAnimal_H
 # include <string>
 # include <iostream>
 # include <fstream>
@@ -20,24 +20,24 @@
 using	std::cout;
 using	std::endl;
 
-class Animal
+class WrongAnimal
 {
 protected:
 	std::string type;
 public:
 	//constructor
-	Animal();
-	Animal(std::string name);
-	Animal(const Animal& obj);
+	WrongAnimal();
+	WrongAnimal(std::string name);
+	WrongAnimal(const WrongAnimal& obj);
 	//destructor
-	virtual	~Animal();
+	~WrongAnimal();
 	//operators
-	Animal& operator=(const Animal& obj);
+	WrongAnimal& operator=(const WrongAnimal& obj);
 	//getter
 	std::string	getType() const;
 	void	setType(std::string type);
 	//functions
-	virtual void	makeSound() const;
+	void	makeSound() const;
 };
 
 #endif

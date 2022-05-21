@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:46:07 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/20 16:50:59 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/21 18:10:05 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ public:
 	Dog(std::string name);
 	Dog(const Dog& obj);
 	//destructor
-	~Dog();
+	virtual	~Dog();
 	//operators
 	Dog& operator=(const Dog& obj);
 	//functions
-	void	makeSound();
+	virtual void	makeSound() const;
 };
 
 #endif
