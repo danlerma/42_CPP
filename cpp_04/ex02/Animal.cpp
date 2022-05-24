@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:45:29 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/21 18:15:14 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/24 16:08:17 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,4 @@ std::string	Animal::getType() const
 void	Animal::setType(std::string type)
 {
 	this->type = type;
-}
-
-//functions
-void	Animal::makeSound() const
-{
-	cout << "Animal noise" << endl;
 }

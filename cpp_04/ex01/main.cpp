@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:54:15 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/23 18:50:54 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/24 16:48:47 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ int main()
 	delete i;
 	cout << endl << "-------------> Loop test" << endl;
 	Animal	*animals[ARRAY_SZ];
-	//gato=gato2
-	//problemas de memoria
-	//separar las memorias
 	for (int i = 0; i < ARRAY_SZ; i++)
 	{
 		if (i == (ARRAY_SZ/2 - 1))
@@ -49,5 +46,15 @@ int main()
 		delete animals[i];
 		cout << endl;
 	}
+	//gato=gato2
+	//problemas de memoria
+	//separar las memorias
+	cout << "-------------> Deep test" << endl;
+	Dog	*d1 = new Dog();
+	Dog	*d2 = new Dog();
+	cout << endl;
+	d1->getBrain().setIdea(0, "Primer pensamiento de d1");
+	cout << endl << "D1 -> " << d1->getBrain().getIdea(0) 
+			<< " D2 -> " << d2->getBrain().getIdea(0) << endl;
 	return (0);
 }

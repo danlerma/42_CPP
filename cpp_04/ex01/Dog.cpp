@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:46:01 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/23 18:25:52 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/24 16:41:30 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ Dog&	Dog::operator=(const Dog& obj)
 }
 
 //getter
-// Brain	Dog::getBrain()
-// {
-// 	return this->brain;
-// }
+Brain	Dog::getBrain()
+{
+	return *this->brain;
+}
 
 //functions
 void	Dog::makeSound() const

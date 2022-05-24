@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:19:44 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/23 14:27:12 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/24 16:52:38 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,16 @@ Brain&	Brain::operator=(const Brain& obj)
 //functions
 std::string	Brain::getIdea(int index)
 {
+	cout << endl << this->ideas[index] << endl;
 	if (!this->ideas[index].empty())
 		return this->ideas[index];
 	else
-		return "there no idea";
+		return "there is no idea";
 }
 
 void	Brain::setIdea(int index, std::string idea)
 {
+	cout << endl << "------------__> " << idea << endl;
 	if (index < 100)
 		this->ideas[index] = idea;
 }
