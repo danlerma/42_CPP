@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:19:44 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/24 16:52:38 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/25 11:24:05 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ Brain::Brain()
 Brain::Brain(const Brain& obj) 
 {
 	cout << "Brain: Copy constructor called." << endl;
-	*this = obj;
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = obj.ideas[i];
 }
 
 //destructor
@@ -41,7 +42,6 @@ Brain&	Brain::operator=(const Brain& obj)
 //functions
 std::string	Brain::getIdea(int index)
 {
-	cout << endl << this->ideas[index] << endl;
 	if (!this->ideas[index].empty())
 		return this->ideas[index];
 	else
@@ -50,7 +50,6 @@ std::string	Brain::getIdea(int index)
 
 void	Brain::setIdea(int index, std::string idea)
 {
-	cout << endl << "------------__> " << idea << endl;
 	if (index < 100)
 		this->ideas[index] = idea;
 }

@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:45:58 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/23 18:08:01 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/25 11:03:47 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ public:
 	//operators
 	Cat& operator=(const Cat& obj);
 	//getter
-	Brain	getBrain();
+	std::string	getBrain(int index);
+	void	setBrain(int index, std::string idea);
 	//functions
 	virtual void	makeSound() const;
 };

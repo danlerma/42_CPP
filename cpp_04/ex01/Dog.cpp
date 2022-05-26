@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:46:01 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/24 16:41:30 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/25 11:03:57 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,15 @@ Dog&	Dog::operator=(const Dog& obj)
 	return (*this);
 }
 
-//getter
-Brain	Dog::getBrain()
+//getter y setter
+std::string	Dog::getBrain(int index)
 {
-	return *this->brain;
+	return this->brain->getIdea(index);
+}
+
+void	Dog::setBrain(int index, std::string idea)
+{
+	this->brain->setIdea(index, idea);
 }
 
 //functions

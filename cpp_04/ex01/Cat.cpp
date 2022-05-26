@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:45:53 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/23 18:25:54 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/25 11:04:20 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,16 @@ Cat&	Cat::operator=(const Cat& obj)
 	return (*this);
 }
 
-// //getter
-// Brain	Cat::getBrain()
-// {
-// 	return this->brain;
-// }
+//getter y setter
+std::string	Cat::getBrain(int index)
+{
+	return this->brain->getIdea(index);
+}
+
+void	Cat::setBrain(int index, std::string idea)
+{
+	this->brain->setIdea(index, idea);
+}
 
 
 //functions

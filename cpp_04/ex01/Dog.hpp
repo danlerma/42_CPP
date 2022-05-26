@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:46:07 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/23 18:09:35 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/25 11:03:40 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ public:
 	virtual	~Dog();
 	//operators
 	Dog& operator=(const Dog& obj);
-	//getter
-	Brain	getBrain();
+	//getter y setter
+	std::string	getBrain(int index);
+	void	setBrain(int index, std::string idea);
 	//functions
 	virtual void	makeSound() const;
 };

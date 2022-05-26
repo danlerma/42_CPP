@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:54:15 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/24 16:48:47 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/25 11:19:58 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,32 @@ int main()
 	Dog	*d1 = new Dog();
 	Dog	*d2 = new Dog();
 	cout << endl;
-	d1->getBrain().setIdea(0, "Primer pensamiento de d1");
-	cout << endl << "D1 -> " << d1->getBrain().getIdea(0) 
-			<< " D2 -> " << d2->getBrain().getIdea(0) << endl;
+	d1->setBrain(0, "Primer pensamiento de d1");
+	cout << endl << "D1 -> " << d1->getBrain(0)
+			<< "\nD2 -> " << d2->getBrain(0) << endl;
+	d2->setBrain(0, "Primer pensamiento de d2");
+	cout << endl;
+	Dog	*d3 = d1;
+	cout << "D1 -> " << d1->getBrain(0)
+			<< "\nD2 -> " << d2->getBrain(0) 
+			<< "\nD3 -> " << d3->getBrain(0)<< endl;
+	d3->setBrain(0, "Cambio de pesamiento (d3)");
+	cout << endl << "D1 -> " << d1->getBrain(0)
+			<< "\nD2 -> " << d2->getBrain(0) 
+			<< "\nD3 -> " << d3->getBrain(0)<< endl;
+	cout << endl;
+	Dog	*d4 = new Dog(*d2);
+	cout << endl << "D1 -> " << d1->getBrain(0)
+			<< "\nD2 -> " << d2->getBrain(0) 
+			<< "\nD3 -> " << d3->getBrain(0)
+			<< "\nD4 -> " << d4->getBrain(0)<< endl;
+	d2->setBrain(0, "Cambio de pesamiento (d2)");
+	cout << endl << "D1 -> " << d1->getBrain(0)
+			<< "\nD2 -> " << d2->getBrain(0) 
+			<< "\nD3 -> " << d3->getBrain(0)
+			<< "\nD4 -> " << d4->getBrain(0)<< endl;
+	delete d1;
+	// delete d2;
+	delete d4;
 	return (0);
 }
