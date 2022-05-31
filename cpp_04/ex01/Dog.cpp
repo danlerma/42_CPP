@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:46:01 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/25 11:03:57 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/31 13:22:49 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,9 @@ Dog::~Dog()
 }
 
 //operator
-Dog&	Dog::operator=(const Dog& obj)
+Dog&	Dog::operator=(Dog const& obj)
 {
 	cout << "Dog: Assignation operator called." << endl;
-	this->type = obj.getType();
 	this->brain = obj.brain;
 	return (*this);
 }
