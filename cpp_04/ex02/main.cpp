@@ -6,12 +6,15 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:54:15 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/24 16:18:05 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2022/05/31 16:16:29 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Cat.hpp"
 #include"Dog.hpp"
+#include"Brain.hpp"
+
+#define ARRAY_SZ 10
 
 void	leaks()
 {
@@ -20,21 +23,49 @@ void	leaks()
 
 int main()
 {
-	atexit(leaks);
-	// const Animal* meta = new Animal();
+	// atexit(leaks);
+	cout << "-------------> Common test" << endl;
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 	cout << endl;
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	cout << endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	// meta->makeSound();
-	cout << endl;
+	delete j;//should not create a leak
 	delete i;
-	delete j;
-	// delete meta;
+	cout << endl << "-------------> Loop test" << endl;
+	Animal	*animals[ARRAY_SZ];
+	for (int i = 0; i < ARRAY_SZ; i++)
+	{
+		if (i <= (ARRAY_SZ/2 - 1))
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+	}
+	cout << endl;
+	for (int i = 0; i < ARRAY_SZ; i++)
+	{
+		cout << i << " -> ";
+		animals[i]->makeSound();
+		delete animals[i];
+		cout << endl;
+	}
+	//gato=gato2
+	//problemas de memoria
+	//separar las memorias
+	cout << "-------------> Deep test" << endl;
+	Dog	*d1 = new Dog(); //default constructor
+	Animal	*d2 = new Dog("Roger"); //Param constuctor
+	// Animal	*d3 = new Dog(*d2); //Copy constructor
+	Dog	*d4 = d1; //assignation operator
+	cout << endl;
+	cout << "D1 -> " << d1->getType() << endl;
+	cout << "D2 -> " << d2->getType() << endl;
+	// cout << "D3 -> " << d3->getType() << endl;
+	cout << "D4 -> " << d4->getType() << endl << endl;
+	delete d1;
+	// delete d2; da problemas
+	cout << "-------------> ABSTRACT" << endl;
+	// Animal* animal_error = new Animal();
+	Animal* a_animal = new Dog();
+	a_animal->makeSound();
+	system("leaks -q animal\n");
 	return (0);
 }
-0 

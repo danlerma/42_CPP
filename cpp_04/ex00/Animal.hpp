@@ -35,8 +35,8 @@ public:
 	Animal& operator=(const Animal& obj);
 	//getter
 	std::string	getType() const;
-	void	setType(std::string type);
 	//functions
+	//virtual es por defecto, las demas clases serían local
 	virtual void	makeSound() const;
 };
 

@@ -16,30 +16,84 @@
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	Animal *animal = new Animal();
+	Animal *dog_animal = new Dog();
+	Animal *cat_animal = new Cat("Sam");
+
+	cout << "------------  SIMPLE TEST -------------" << endl;
+	cout << "animal : " << endl << animal->getType() << endl;
+	animal->makeSound();
+	cout << "dog_animal : " << endl << dog_animal->getType() << endl;
+	dog_animal->makeSound();
+	cout << "cat_animal : " << endl << cat_animal->getType() << endl;
+	cat_animal->makeSound();
 	cout << endl;
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
+	delete animal;
+	delete dog_animal;
+	delete cat_animal;
+
+	cout << endl << "------------  CHANGES TEST -------------" << endl;
+	Animal *a_animal = new Animal();
+	Animal *d_animal = new Dog();
+	Cat *c_animal = new Cat("Sam");
+	Animal *c_animal2 = new Cat(*c_animal);
+	cout << "a_animal : " << endl << a_animal->getType() << endl;
+	a_animal->makeSound();
+	cout << "d_animal : " << endl << d_animal->getType() << endl;
+	d_animal->makeSound();
+	cout << "c_animal : " << endl << c_animal->getType() << endl;
+	c_animal->makeSound();
+	cout << "c_animal2 : " << endl << c_animal2->getType() << endl;
+	cout << "change type : " << c_animal2->getType() << endl;
+	c_animal2->makeSound();
 	cout << endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-	cout << endl;
-	delete i;
-	delete j;
-	delete meta;
-	/*
-	const WrongAnimal* meta = new WrongAnimal();
-	const WrongAnimal* i = new WrongCat();
-	cout << endl;
-	std::cout << i->getType() << " " << std::endl;
-	cout << endl;
+	delete a_animal;
+	delete d_animal;
+	delete c_animal;
+	delete c_animal2;
+
+	cout << endl << "------------  DEEP TEST -------------" << endl;
+	Animal *a = new Animal("Hipopotamo");
+	Animal *c = new Animal();
+	// Dog *d = new Animal(); //error
+	Dog *e = new Dog("Toby");
+	Dog *f =new Dog();
+	Dog *g =new Dog(*f);
+	Animal *b = new Dog(*f);
+	Cat *h = new Cat("Sam");
+	Cat *i =new Cat(*h);
+
+	Animal z = *f;
+
+	(void)z;
+	cout << "a : " << a->getType() << endl;
+	a->makeSound();
+	cout << "c : " << c->getType() << endl;
+	c->makeSound();
+	cout << "e : " << e->getType() << endl;
+	e->makeSound();
+	cout << "f : " << f->getType() << endl;
+	f->makeSound();
+	cout << "b : " << b->getType() << endl;
+	b->makeSound();
+	cout << "h : " << h->getType() << endl;
+	h->makeSound();
+	cout << "i : " << i->getType() << endl;
 	i->makeSound();
-	meta->makeSound();
-	cout << endl;
+	cout << "g : " << g->getType() << endl;
+	g->makeSound();
+	cout << endl << "........PRUEBAS........." << endl;
+	f = e;
+	cout << "e : " << e->getType() << "\t" << "f : " << f->getType() << "\t" << "g : " << g->getType() << "\t\t" << "b : " << b->getType() << "\t\t" << "z : " << z.getType() << endl;
+	cout << "e : " << e->getType() << "\t" << "f : " << f->getType() << "\t" << "g : " << g->getType() << "\t\t" << "b : " << b->getType() << "\t\t" << "z : " << z.getType() << endl;
+	cout << "e : " << e->getType() << "\t" << "f : " << f->getType() << "\t" << "g : " << g->getType() << "\t\t" << "b : " << b->getType() << "\t\t" << "z : " << z.getType() << endl;
+	cout << "e : " << e->getType() << "\t" << "f : " << f->getType() << "\t" << "g : " << g->getType() << "\t" << "b : " << b->getType() << "\tz : " << z.getType() << endl;
+	delete a;
+	delete c;
+	delete e;
+	// delete f;
+	delete h;
 	delete i;
-	delete meta;*/
+	delete g;
 	return (0);
 }

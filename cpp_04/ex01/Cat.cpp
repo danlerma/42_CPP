@@ -31,6 +31,7 @@ Cat::Cat(std::string type) : Animal()
 {
 	cout << "Cat: Type constructor called." << endl;
 	this->type = type;
+	this->brain = new Brain();
 }
 
 //destructor

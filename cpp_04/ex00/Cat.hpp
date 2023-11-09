@@ -26,11 +26,11 @@ public:
 	Cat(std::string name);
 	Cat(const Cat& obj);
 	//destructor
-	virtual	~Cat();
+	~Cat();
 	//operators
 	Cat& operator=(const Cat& obj);
 	//functions
-	virtual void	makeSound() const;
+	void	makeSound() const;
 };
 
 #endif
