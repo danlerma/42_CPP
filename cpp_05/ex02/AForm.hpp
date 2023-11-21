@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 11:13:12 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/11/09 15:38:07 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:33:13 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef FORM_HPP
+# ifndef AFORM_HPP
 
-# define FORM_HPP
+# define AFORM_HPP
 # include <string>
 # include <iostream>
 # include <exception>
@@ -20,7 +20,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string	name;
@@ -28,13 +28,13 @@ class Form
 		const int	s_grade;
 		const int	ex_grade;
 	public:
-		Form(); //Default
-		~Form(); // Destructor
-		Form(int sgrade, int exgrade, std::string nam);
-		Form(const Form &obj);
-		Form& operator=(Form &obj);
+		AForm(); //Default
+		virtual ~AForm(); // Destructor
+		AForm(int sgrade, int exgrade, std::string nam);
+		AForm(const AForm &obj);
+		AForm& operator=(AForm &obj);
 
-		std::string	getName();
+		virtual std::string	getName() = 0;
 		bool	getSign();
 		int	getS_grade();
 		int	getEx_grade();
@@ -54,6 +54,6 @@ class Form
 };
 
 
-std::ostream& operator<<(std::ostream& os, const Form& instance);
+std::ostream& operator<<(std::ostream& os, const AForm& instance);
 
 #endif
