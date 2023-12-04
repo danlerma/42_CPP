@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 20:19:54 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/21 20:20:06 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:26:10 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,32 @@
 //constructor
 WrongAnimal::WrongAnimal()
 {
-	cout << "WrongAnimal: Default constructor called." << endl;
+	std::cout << "WrongAnimal: Default constructor called." << std::endl;
 	this->type = "Empty";
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& obj)
 {
-	cout << "WrongAnimal: Copy constructor called." << endl;
+	std::cout << "WrongAnimal: Copy constructor called." << std::endl;
 	this->type = obj.getType();
 }
 
 WrongAnimal::WrongAnimal(std::string type)
 {
-	cout << "WrongAnimal: Type constructor called." << endl;
+	std::cout << "WrongAnimal: Type constructor called." << std::endl;
 	this->type = type;
 }
 
 //destructor
 WrongAnimal::~WrongAnimal()
 {
-	cout << "WrongAnimal: Destructor called." << endl;
+	std::cout << "WrongAnimal: Destructor called." << std::endl;
 }
 
 //operator
 WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& obj)
 {
-	cout << "WrongAnimal: Assignation operator called." << endl;
+	std::cout << "WrongAnimal: Assignation operator called." << std::endl;
 	this->type = obj.type;
 	return (*this);
 }
@@ -51,13 +51,8 @@ std::string	WrongAnimal::getType() const
 	return (this->type);
 }
 
-void	WrongAnimal::setType(std::string type)
-{
-	this->type = type;
-}
-
 //functions
 void	WrongAnimal::makeSound() const
 {
-	cout << "WrongAnimal noise" << endl;
+	std::cout << "WrongAnimal noise" << std::endl;
 }

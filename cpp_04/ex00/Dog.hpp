@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:46:07 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/21 18:10:05 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:28:55 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 # define DOG_H
 # include "Animal.hpp"
-
-using	std::cout;
-using	std::endl;
 
 class Dog : public Animal
 {

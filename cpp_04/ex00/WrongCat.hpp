@@ -3,9 +3,6 @@
 # define WRONGCAT_H
 # include "WrongAnimal.hpp"
 
-using	std::cout;
-using	std::endl;
-
 class WrongCat : public WrongAnimal
 {
 public:

@@ -15,32 +15,32 @@
 //constructor
 WrongCat::WrongCat() : WrongAnimal()
 {
-	cout << "WrongCat: Default constructor called." << endl;
+	std::cout << "WrongCat: Default constructor called." << std::endl;
 	this->type = "WrongCat";
 }
 
 WrongCat::WrongCat(const WrongCat& obj) : WrongAnimal() 
 {
-	cout << "WrongCat: Copy constructor called." << endl;
+	std::cout << "WrongCat: Copy constructor called." << std::endl;
 	this->type = obj.getType();
 }
 
 WrongCat::WrongCat(std::string type) : WrongAnimal()
 {
-	cout << "WrongCat: Type constructor called." << endl;
+	std::cout << "WrongCat: Type constructor called." << std::endl;
 	this->type = type;
 }
 
 //destructor
 WrongCat::~WrongCat()
 {
-	cout << "WrongCat: Destructor called." << endl;
+	std::cout << "WrongCat: Destructor called." << std::endl;
 }
 
 //operator
 WrongCat&	WrongCat::operator=(const WrongCat& obj)
 {
-	cout << "WrongCat: Assignation operator called." << endl;
+	std::cout << "WrongCat: Assignation operator called." << std::endl;
 	this->type = obj.getType();
 	return (*this);
 }
@@ -48,5 +48,5 @@ WrongCat&	WrongCat::operator=(const WrongCat& obj)
 //functions
 void	WrongCat::makeSound() const
 {
-	cout << "Miau miau !" << endl;
+	std::cout << "Miau miau !" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:45:58 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/25 11:03:47 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:08:12 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 # define CAT_H
 # include "Animal.hpp"
 # include "Brain.hpp"
-
-using	std::cout;
-using	std::endl;
 
 class Cat : public Animal
 {
@@ -34,7 +31,7 @@ public:
 	Cat& operator=(const Cat& obj);
 	//getter
 	std::string	getBrain(int index);
-	void	setBrain(int index, std::string idea);
+	void	setBrain(int index, std::string str);
 	//functions
 	virtual void	makeSound() const;
 };

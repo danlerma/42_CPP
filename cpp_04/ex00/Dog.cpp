@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:46:01 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/21 18:16:36 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:25:34 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,32 @@
 //constructor
 Dog::Dog() : Animal()
 {
-	cout << "Dog: Default constructor called." << endl;
+	std::cout << "Dog: Default constructor called." << std::endl;
 	this->type = "Dog";
 }
 
 Dog::Dog(const Dog& obj) : Animal() 
 {
-	cout << "Dog: Copy constructor called." << endl;
+	std::cout << "Dog: Copy constructor called." << std::endl;
 	this->type = obj.getType();
 }
 
 Dog::Dog(std::string type) : Animal()
 {
-	cout << "Dog: Type constructor called." << endl;
+	std::cout << "Dog: Type constructor called." << std::endl;
 	this->type = type;
 }
 
 //destructor
 Dog::~Dog()
 {
-	cout << "Dog: Destructor called." << endl;
+	std::cout << "Dog: Destructor called." << std::endl;
 }
 
 //operator
 Dog&	Dog::operator=(const Dog& obj)
 {
-	cout << "Dog: Assignation operator called." << endl;
+	std::cout << "Dog: Assignation operator called." << std::endl;
 	this->type = obj.getType();
 	return (*this);
 }
@@ -48,5 +48,5 @@ Dog&	Dog::operator=(const Dog& obj)
 //functions
 void	Dog::makeSound() const
 {
-	cout << "Guau guau !" << endl;
+	std::cout << "Guau guau !" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:45:29 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/21 18:15:14 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:25:12 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,32 @@
 //constructor
 Animal::Animal()
 {
-	cout << "Animal: Default constructor called." << endl;
+	std::cout << "Animal: Default constructor called." << std::endl;
 	this->type = "Empty";
 }
 
 Animal::Animal(const Animal& obj)
 {
-	cout << "Animal: Copy constructor called." << endl;
+	std::cout << "Animal: Copy constructor called." << std::endl;
 	this->type = obj.getType();
 }
 
 Animal::Animal(std::string type)
 {
-	cout << "Animal: Type constructor called." << endl;
+	std::cout << "Animal: Type constructor called." << std::endl;
 	this->type = type;
 }
 
 //destructor
 Animal::~Animal()
 {
-	cout << "Animal: Destructor called." << endl;
+	std::cout << "Animal: Destructor called." << std::endl;
 }
 
 //operator
 Animal&	Animal::operator=(const Animal& obj)
 {
-	cout << "Animal: Assignation operator called." << endl;
+	std::cout << "Animal: Assignation operator called." << std::endl;
 	this->type = obj.type;
 	return (*this);
 }
@@ -51,13 +51,8 @@ std::string	Animal::getType() const
 	return (this->type);
 }
 
-void	Animal::setType(std::string type)
-{
-	this->type = type;
-}
-
 //functions
 void	Animal::makeSound() const
 {
-	cout << "Animal noise" << endl;
+	std::cout << "Animal noise" << std::endl;
 }

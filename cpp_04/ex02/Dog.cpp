@@ -6,44 +6,47 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:46:01 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/31 13:22:49 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:52:40 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Dog.hpp"
 
 //constructor
-Dog::Dog() : Animal()
+Dog::Dog()
 {
-	cout << "Dog: Default constructor called." << endl;
+	std::cout << "Dog: Default constructor called." << std::endl;
 	this->type = "Dog";
 	this->brain = new Brain();
 }
 
-Dog::Dog(const Dog& obj) : Animal() 
+Dog::Dog(const Dog& obj) 
 {
-	cout << "Dog: Copy constructor called." << endl;
+	std::cout << "Dog: Copy constructor called." << std::endl;
 	this->type = obj.getType();
 	this->brain = obj.brain;
+	for (int i = 0; i < 100; i++)
+		this->brain->setIdea(i, obj.brain->getIdea(i));
 }
 
-Dog::Dog(std::string type) : Animal()
+Dog::Dog(std::string type)
 {
-	cout << "Dog: Type constructor called." << endl;
+	std::cout << "Dog: Type constructor called." << std::endl;
 	this->type = type;
+	this->brain = new Brain();
 }
 
 //destructor
 Dog::~Dog()
 {
-	cout << "Dog: Destructor called." << endl;
+	std::cout << "Dog: Destructor called." << std::endl;
 	delete this->brain;
 }
 
 //operator
 Dog&	Dog::operator=(Dog const& obj)
 {
-	cout << "Dog: Assignation operator called." << endl;
+	std::cout << "Dog: Assignation operator called." << std::endl;
 	this->brain = obj.brain;
 	return (*this);
 }
@@ -54,13 +57,13 @@ std::string	Dog::getBrain(int index)
 	return this->brain->getIdea(index);
 }
 
-void	Dog::setBrain(int index, std::string idea)
+void	Dog::setBrain(int index, std::string str)
 {
-	this->brain->setIdea(index, idea);
+	this->brain->setIdea(index, str);
 }
 
 //functions
 void	Dog::makeSound() const
 {
-	cout << "Guau guau !" << endl;
+	std::cout << "Guau guau !" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:06:42 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/11/20 13:33:29 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:16:22 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,21 @@ int	AForm::getS_grade()
 int	AForm::getEx_grade()
 {
 	return(this->ex_grade);
+}
+
+std::string	AForm::getName()
+{
+	return(this->name);
+}
+
+void	AForm::setS_grade(int num)
+{
+	this->s_grade =num;
+}
+
+void	AForm::setEx_grade(int num): ex_grade(num)
+{
+
 }
 
 void	AForm::beSigned(Bureaucrat &obj)

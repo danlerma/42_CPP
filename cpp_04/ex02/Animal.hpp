@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:45:33 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/23 18:25:11 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:30:15 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 # include <string>
 # include <iostream>
 # include <fstream>
-
-using	std::cout;
-using	std::endl;
 
 class Animal
 {
@@ -35,9 +32,9 @@ public:
 	Animal& operator=(const Animal& obj);
 	//getter
 	std::string	getType() const;
-	void	setType(std::string type);
+	// void	setType(std::string type);
 	//functions
-	virtual void	makeSound() const = 0;
+	virtual void	makeSound() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:45:53 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/21 18:16:46 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:25:23 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,32 @@
 //constructor
 Cat::Cat() : Animal()
 {
-	cout << "Cat: Default constructor called." << endl;
+	std::cout << "Cat: Default constructor called." << std::endl;
 	this->type = "Cat";
 }
 
 Cat::Cat(const Cat& obj) : Animal() 
 {
-	cout << "Cat: Copy constructor called." << endl;
+	std::cout << "Cat: Copy constructor called." << std::endl;
 	this->type = obj.getType();
 }
 
 Cat::Cat(std::string type) : Animal()
 {
-	cout << "Cat: Type constructor called." << endl;
+	std::cout << "Cat: Type constructor called." << std::endl;
 	this->type = type;
 }
 
 //destructor
 Cat::~Cat()
 {
-	cout << "Cat: Destructor called." << endl;
+	std::cout << "Cat: Destructor called." << std::endl;
 }
 
 //operator
 Cat&	Cat::operator=(const Cat& obj)
 {
-	cout << "Cat: Assignation operator called." << endl;
+	std::cout << "Cat: Assignation operator called." << std::endl;
 	this->type = obj.getType();
 	return (*this);
 }
@@ -48,5 +48,5 @@ Cat&	Cat::operator=(const Cat& obj)
 //functions
 void	Cat::makeSound() const
 {
-	cout << "Miau miau !" << endl;
+	std::cout << "Miau miau !" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 11:13:12 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/11/20 13:33:13 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/11/28 17:55:02 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Bureaucrat;
 
 class AForm
 {
-	private:
+	protected:
 		const std::string	name;
 		bool	sign;
 		const int	s_grade;
@@ -38,6 +38,8 @@ class AForm
 		bool	getSign();
 		int	getS_grade();
 		int	getEx_grade();
+		void	setS_grade(int num);
+		void	setEx_grade(int num);
 		void	beSigned(Bureaucrat &obj);
 		
 		class	GradeTooLowException: public std::exception

@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:46:07 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/25 11:03:40 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:08:18 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 # define DOG_H
 # include "Animal.hpp"
 # include "Brain.hpp"
-
-using	std::cout;
-using	std::endl;
 
 class Dog : public Animal
 {
@@ -34,7 +31,7 @@ public:
 	Dog& operator=(const Dog& obj);
 	//getter y setter
 	std::string	getBrain(int index);
-	void	setBrain(int index, std::string idea);
+	void	setBrain(int index, std::string str);
 	//functions
 	virtual void	makeSound() const;
 };

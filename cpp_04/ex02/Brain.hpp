@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:04:15 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/23 14:12:21 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:44:56 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 # define BRAIN_H
 # include "Animal.hpp"
-
-using	std::cout;
-using	std::endl;
 
 class Brain
 {

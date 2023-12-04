@@ -17,9 +17,6 @@
 # include <iostream>
 # include <fstream>
 
-using	std::cout;
-using	std::endl;
-
 class WrongAnimal
 {
 protected:
@@ -35,7 +32,6 @@ public:
 	WrongAnimal& operator=(const WrongAnimal& obj);
 	//getter
 	std::string	getType() const;
-	void	setType(std::string type);
 	//functions
 	void	makeSound() const;
 };

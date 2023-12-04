@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:45:33 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/21 18:10:10 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:24:37 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 # include <string>
 # include <iostream>
 # include <fstream>
-
-using	std::cout;
-using	std::endl;
 
 class Animal
 {

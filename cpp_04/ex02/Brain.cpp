@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:19:44 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/25 11:24:05 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:39:24 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 Brain::Brain()
 {
-	cout << "Brain: Default constructor called." << endl;
+	std::cout << "Brain: Default constructor called." << std::endl;
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = "Idea Brain";
 }
 
 Brain::Brain(const Brain& obj) 
 {
-	cout << "Brain: Copy constructor called." << endl;
+	std::cout << "Brain: Copy constructor called." << std::endl;
 	for (int i = 0; i < 100; i++)
 		this->ideas[i] = obj.ideas[i];
 }
@@ -27,13 +29,13 @@ Brain::Brain(const Brain& obj)
 //destructor
 Brain::~Brain()
 {
-	cout << "Brain: Destructor called." << endl;
+	std::cout << "Brain: Destructor called." << std::endl;
 }
 
 //operator
 Brain&	Brain::operator=(const Brain& obj)
 {
-	cout << "Brain: Assignation operator called." << endl;
+	std::cout << "Brain: Assignation operator called." << std::endl;
 	for (int i = 0; i < 100; i++)
 		this->ideas[i] = obj.ideas[i];
 	return (*this);
@@ -50,6 +52,6 @@ std::string	Brain::getIdea(int index)
 
 void	Brain::setIdea(int index, std::string idea)
 {
-	if (index < 100)
+	if (index < 100 && index > -1)
 		this->ideas[index] = idea;
 }

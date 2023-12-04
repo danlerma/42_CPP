@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:54:15 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/21 20:25:31 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:25:52 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,39 +20,39 @@ int main()
 	Animal *dog_animal = new Dog();
 	Animal *cat_animal = new Cat("Sam");
 
-	cout << "------------  SIMPLE TEST -------------" << endl;
-	cout << "animal : " << endl << animal->getType() << endl;
+	std::cout << "------------  SIMPLE TEST -------------" << std::endl;
+	std::cout << "animal : " << std::endl << animal->getType() << std::endl;
 	animal->makeSound();
-	cout << "dog_animal : " << endl << dog_animal->getType() << endl;
+	std::cout << "dog_animal : " << std::endl << dog_animal->getType() << std::endl;
 	dog_animal->makeSound();
-	cout << "cat_animal : " << endl << cat_animal->getType() << endl;
+	std::cout << "cat_animal : " << std::endl << cat_animal->getType() << std::endl;
 	cat_animal->makeSound();
-	cout << endl;
+	std::cout << std::endl;
 	delete animal;
 	delete dog_animal;
 	delete cat_animal;
 
-	cout << endl << "------------  CHANGES TEST -------------" << endl;
+	std::cout << std::endl << "------------  CHANGES TEST -------------" << std::endl;
 	Animal *a_animal = new Animal();
 	Animal *d_animal = new Dog();
 	Cat *c_animal = new Cat("Sam");
 	Animal *c_animal2 = new Cat(*c_animal);
-	cout << "a_animal : " << endl << a_animal->getType() << endl;
+	std::cout << "a_animal : " << std::endl << a_animal->getType() << std::endl;
 	a_animal->makeSound();
-	cout << "d_animal : " << endl << d_animal->getType() << endl;
+	std::cout << "d_animal : " << std::endl << d_animal->getType() << std::endl;
 	d_animal->makeSound();
-	cout << "c_animal : " << endl << c_animal->getType() << endl;
+	std::cout << "c_animal : " << std::endl << c_animal->getType() << std::endl;
 	c_animal->makeSound();
-	cout << "c_animal2 : " << endl << c_animal2->getType() << endl;
-	cout << "change type : " << c_animal2->getType() << endl;
+	std::cout << "c_animal2 : " << std::endl << c_animal2->getType() << std::endl;
+	std::cout << "change type : " << c_animal2->getType() << std::endl;
 	c_animal2->makeSound();
-	cout << endl;
+	std::cout << std::endl;
 	delete a_animal;
 	delete d_animal;
 	delete c_animal;
 	delete c_animal2;
 
-	cout << endl << "------------  DEEP TEST -------------" << endl;
+	std::cout << std::endl << "------------  DEEP TEST -------------" << std::endl;
 	Animal *a = new Animal("Hipopotamo");
 	Animal *c = new Animal();
 	// Dog *d = new Animal(); //error
@@ -66,28 +66,28 @@ int main()
 	Animal z = *f;
 
 	(void)z;
-	cout << "a : " << a->getType() << endl;
+	std::cout << "a : " << a->getType() << std::endl;
 	a->makeSound();
-	cout << "c : " << c->getType() << endl;
+	std::cout << "c : " << c->getType() << std::endl;
 	c->makeSound();
-	cout << "e : " << e->getType() << endl;
+	std::cout << "e : " << e->getType() << std::endl;
 	e->makeSound();
-	cout << "f : " << f->getType() << endl;
+	std::cout << "f : " << f->getType() << std::endl;
 	f->makeSound();
-	cout << "b : " << b->getType() << endl;
+	std::cout << "b : " << b->getType() << std::endl;
 	b->makeSound();
-	cout << "h : " << h->getType() << endl;
+	std::cout << "h : " << h->getType() << std::endl;
 	h->makeSound();
-	cout << "i : " << i->getType() << endl;
+	std::cout << "i : " << i->getType() << std::endl;
 	i->makeSound();
-	cout << "g : " << g->getType() << endl;
+	std::cout << "g : " << g->getType() << std::endl;
 	g->makeSound();
-	cout << endl << "........PRUEBAS........." << endl;
+	std::cout << std::endl << "........PRUEBAS........." << std::endl;
 	f = e;
-	cout << "e : " << e->getType() << "\t" << "f : " << f->getType() << "\t" << "g : " << g->getType() << "\t\t" << "b : " << b->getType() << "\t\t" << "z : " << z.getType() << endl;
-	cout << "e : " << e->getType() << "\t" << "f : " << f->getType() << "\t" << "g : " << g->getType() << "\t\t" << "b : " << b->getType() << "\t\t" << "z : " << z.getType() << endl;
-	cout << "e : " << e->getType() << "\t" << "f : " << f->getType() << "\t" << "g : " << g->getType() << "\t\t" << "b : " << b->getType() << "\t\t" << "z : " << z.getType() << endl;
-	cout << "e : " << e->getType() << "\t" << "f : " << f->getType() << "\t" << "g : " << g->getType() << "\t" << "b : " << b->getType() << "\tz : " << z.getType() << endl;
+	std::cout << "e : " << e->getType() << "\t" << "f : " << f->getType() << "\t" << "g : " << g->getType() << "\t\t" << "b : " << b->getType() << "\t\t" << "z : " << z.getType() << std::endl;
+	std::cout << "e : " << e->getType() << "\t" << "f : " << f->getType() << "\t" << "g : " << g->getType() << "\t\t" << "b : " << b->getType() << "\t\t" << "z : " << z.getType() << std::endl;
+	std::cout << "e : " << e->getType() << "\t" << "f : " << f->getType() << "\t" << "g : " << g->getType() << "\t\t" << "b : " << b->getType() << "\t\t" << "z : " << z.getType() << std::endl;
+	std::cout << "e : " << e->getType() << "\t" << "f : " << f->getType() << "\t" << "g : " << g->getType() << "\t" << "b : " << b->getType() << "\tz : " << z.getType() << std::endl;
 	delete a;
 	delete c;
 	delete e;

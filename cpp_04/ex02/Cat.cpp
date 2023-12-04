@@ -6,30 +6,32 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:45:53 by dlerma-c          #+#    #+#             */
-/*   Updated: 2022/05/31 13:22:43 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:52:37 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Cat.hpp"
 
 //constructor
-Cat::Cat() : Animal()
+Cat::Cat()
 {
-	cout << "Cat: Default constructor called." << endl;
+	std::cout << "Cat: Default constructor called." << std::endl;
 	this->type = "Cat";
 	this->brain = new Brain();
 }
 
-Cat::Cat(const Cat& obj) : Animal() 
+Cat::Cat(const Cat& obj) 
 {
-	cout << "Cat: Copy constructor called." << endl;
+	std::cout << "Cat: Copy constructor called." << std::endl;
 	this->type = obj.getType();
 	this->brain = obj.brain;
+	for (int i = 0; i < 100; i++)
+		this->brain->setIdea(i, obj.brain->getIdea(i));
 }
 
-Cat::Cat(std::string type) : Animal()
+Cat::Cat(std::string type)
 {
-	cout << "Cat: Type constructor called." << endl;
+	std::cout << "Cat: Type constructor called." << std::endl;
 	this->type = type;
 	this->brain = new Brain();
 }
@@ -37,14 +39,14 @@ Cat::Cat(std::string type) : Animal()
 //destructor
 Cat::~Cat()
 {
-	cout << "Cat: Destructor called." << endl;
+	std::cout << "Cat: Destructor called." << std::endl;
 	delete this->brain;
 }
 
 //operator
 Cat&	Cat::operator=(Cat const& obj)
 {
-	cout << "Cat: Assignation operator called." << endl;
+	std::cout << "Cat: Assignation operator called." << std::endl;
 	this->brain = obj.brain;
 	return (*this);
 }
@@ -55,14 +57,13 @@ std::string	Cat::getBrain(int index)
 	return this->brain->getIdea(index);
 }
 
-void	Cat::setBrain(int index, std::string idea)
+void	Cat::setBrain(int index, std::string str)
 {
-	this->brain->setIdea(index, idea);
+	this->brain->setIdea(index, str);
 }
-
 
 //functions
 void	Cat::makeSound() const
 {
-	cout << "Miau miau !" << endl;
+	std::cout << "Miau miau !" << std::endl;
 }
