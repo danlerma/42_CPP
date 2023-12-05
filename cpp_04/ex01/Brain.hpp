@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 13:45:58 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/12/05 18:45:31 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/05/23 13:04:15 by dlerma-c          #+#    #+#             */
+/*   Updated: 2023/12/04 19:44:56 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_H
+#ifndef BRAIN_H
 
-# define CAT_H
+# define BRAIN_H
 # include "Animal.hpp"
 
-class Cat : public Animal
+class Brain
 {
+private:
+	std::string	ideas[100];
 public:
 	//constructor
-	Cat();
-	Cat(std::string name);
-	Cat(const Cat& obj);
+	Brain();
+	Brain(std::string name);
+	Brain(const Brain& obj);
 	//destructor
-	~Cat();
+	virtual	~Brain();
 	//operators
-	Cat& operator=(const Cat& obj);
+	Brain& operator=(const Brain& obj);
 	//functions
-	void	makeSound() const;
+	std::string	getIdea(int index);
+	void	setIdea(int index, std::string idea);
 };
 
 #endif

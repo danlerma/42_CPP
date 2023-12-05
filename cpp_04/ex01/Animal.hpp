@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 13:45:58 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/12/05 18:45:31 by dlerma-c         ###   ########.fr       */
+/*   Created: 2022/05/19 13:45:33 by dlerma-c          #+#    #+#             */
+/*   Updated: 2023/12/04 17:30:15 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_H
+#ifndef ANIMAL_H
 
-# define CAT_H
-# include "Animal.hpp"
+# define ANIMAL_H
+# include <string>
+# include <iostream>
+# include <fstream>
 
-class Cat : public Animal
+class Animal
 {
+protected:
+	std::string type;
 public:
 	//constructor
-	Cat();
-	Cat(std::string name);
-	Cat(const Cat& obj);
+	Animal();
+	Animal(std::string name);
+	Animal(const Animal& obj);
 	//destructor
-	~Cat();
+	virtual	~Animal();
 	//operators
-	Cat& operator=(const Cat& obj);
+	Animal& operator=(const Animal& obj);
+	//getter
+	std::string	getType() const;
+	// void	setType(std::string type);
 	//functions
-	void	makeSound() const;
+	virtual void	makeSound() const;
 };
 
 #endif

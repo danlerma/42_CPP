@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:46:01 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/12/05 19:14:39 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:52:40 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Dog::Dog()
 	this->brain = new Brain();
 }
 
-Dog::Dog(const Dog& obj)
+Dog::Dog(const Dog& obj) 
 {
 	std::cout << "Dog: Copy constructor called." << std::endl;
 	this->type = obj.getType();
@@ -47,7 +47,7 @@ Dog::~Dog()
 Dog&	Dog::operator=(Dog const& obj)
 {
 	std::cout << "Dog: Assignation operator called." << std::endl;
-	this->type = obj.type;
+	this->brain = obj.brain;
 	return (*this);
 }
 
