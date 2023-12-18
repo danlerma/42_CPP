@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:45:33 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/12/04 17:30:15 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:21:05 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 	std::string	getType() const;
 	// void	setType(std::string type);
 	//functions
-	virtual void	makeSound() const;
+	virtual void	makeSound() const = 0;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:04:15 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/12/04 19:44:56 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/12 19:18:00 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	Brain(std::string name);
 	Brain(const Brain& obj);
 	//destructor
-	virtual	~Brain();
+	~Brain();
 	//operators
 	Brain& operator=(const Brain& obj);
 	//functions

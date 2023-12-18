@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:45:53 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/12/05 19:33:30 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:48:55 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Cat::Cat(const Cat& obj)
 {
 	std::cout << "Cat: Copy constructor called." << std::endl;
 	this->type = obj.getType();
-	this->brain = obj.brain;
+	this->brain = new Brain();
 	for (int i = 0; i < 100; i++)
 		this->brain->setIdea(i, obj.brain->getIdea(i));
 }
