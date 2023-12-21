@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:46:07 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/12/12 19:25:53 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:44:02 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	Dog(std::string name);
 	Dog(const Dog& obj);
 	//destructor
-	virtual	~Dog();
+	~Dog();
 	//operators
 	Dog& operator=(const Dog& obj);
 	//getter y setter

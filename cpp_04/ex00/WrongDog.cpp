@@ -1,52 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   WrongDog.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 20:22:21 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/12/21 18:02:05 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:02:29 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"WrongCat.hpp"
+#include"WrongDog.hpp"
 
 //constructor
-WrongCat::WrongCat() : WrongAnimal()
+WrongDog::WrongDog() : WrongAnimal()
 {
-	std::cout << "WrongCat: Default constructor called." << std::endl;
-	this->type = "WrongCat";
+	std::cout << "WrongDog: Default constructor called." << std::endl;
+	this->type = "WrongDog";
 }
 
-WrongCat::WrongCat(const WrongCat& obj) : WrongAnimal() 
+WrongDog::WrongDog(const WrongDog& obj) : WrongAnimal() 
 {
-	std::cout << "WrongCat: Copy constructor called." << std::endl;
+	std::cout << "WrongDog: Copy constructor called." << std::endl;
 	this->type = obj.getType();
 }
 
-WrongCat::WrongCat(std::string type) : WrongAnimal()
+WrongDog::WrongDog(std::string type) : WrongAnimal()
 {
-	std::cout << "WrongCat: Type constructor called." << std::endl;
+	std::cout << "WrongDog: Type constructor called." << std::endl;
 	this->type = type;
 }
 
 //destructor
-WrongCat::~WrongCat()
+WrongDog::~WrongDog()
 {
-	std::cout << "WrongCat: Destructor called." << std::endl;
+	std::cout << "WrongDog: Destructor called." << std::endl;
 }
 
 //operator
-WrongCat&	WrongCat::operator=(const WrongCat& obj)
+WrongDog&	WrongDog::operator=(const WrongDog& obj)
 {
-	std::cout << "WrongCat: Assignation operator called." << std::endl;
+	std::cout << "WrongDog: Assignation operator called." << std::endl;
 	this->type = obj.getType();
 	return (*this);
 }
 
 //functions
-void	WrongCat::makeSound() const
+void	WrongDog::makeSound() const
 {
-	std::cout << "Not miau miau !" << std::endl;
+	std::cout << "Not guau guau !" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:54:15 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/12/12 19:14:58 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:04:35 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,29 +39,6 @@ int main()
 	delete dog_animal;
 	delete cat_animal;
 
-	// std::cout << std::endl << "------------  CHANGES TEST -------------" << std::endl;
-	// Animal *a_animal = new Animal();
-	// Animal *d_animal = new Dog();
-	// Cat *c_animal = new Cat("Sam");
-	// Animal *c_animal2 = new Cat(*c_animal);
-	// std::cout << "a_animal : " << std::endl << a_animal->getType() << std::endl;
-	// a_animal->makeSound();
-	// std::cout << "d_animal : " << std::endl << d_animal->getType() << std::endl;
-	// d_animal->makeSound();
-	// std::cout << "c_animal : " << std::endl << c_animal->getType() << std::endl;
-	// c_animal->makeSound();
-	// std::cout << "c_animal2 : " << std::endl << c_animal2->getType() << std::endl;
-	// std::cout << "change type : " << c_animal2->getType() << std::endl;
-	// c_animal2->makeSound();
-	// std::cout <<"1"<< std::endl;
-	// delete a_animal;
-	// std::cout <<"2"<< std::endl;
-	// delete d_animal;
-	// std::cout <<"3"<< std::endl;
-	// delete c_animal2;
-	// std::cout <<" " << c_animal << std::endl;
-	// delete c_animal;
-
 	std::cout << std::endl << "------------  ARRAY TEST -------------" << std::endl;
 	Animal *grupo[10];
 	for (int i = 0; i < 10; i++)
@@ -84,17 +61,12 @@ int main()
 	std::cout << std::endl << "------------  DEEP TEST -------------" << std::endl;
 	Animal *a = new Animal("Hipopotamo");
 	Animal *c = new Animal();
-	std::cout << std::endl;
 	// Dog *d = new Animal(); //error
 	Dog *e = new Dog("Toby");
 	Dog *f =new Dog();
-	std::cout << std::endl;
 	Animal *b = new Dog();
-	std::cout << std::endl;
 	Cat *h = new Cat("Sam");
-	std::cout << std::endl;
 	Cat *i =new Cat(*h);
-	std::cout << std::endl;
 	Animal z = *f; //estatica se destruye al final
 
 	std::cout << "a : " << a->getType() << std::endl;
@@ -146,9 +118,6 @@ int main()
 
 	Cat este;
 
-	// std::cout << "Idea 0 (otro): " << otro.getBrain(0) << std::endl;
-	// std::cout << "Idea 1 (otro): " << otro.getBrain(1) << std::endl;
-	// std::cout << "Idea 2 (otro): " << otro.getBrain(2) << std::endl;
 	std::cout << "Idea 0 (este): " << este.getBrain(0) << std::endl;
 	std::cout << "Idea 1 (este): " << este.getBrain(1) << std::endl;
 	std::cout << "Idea 2 (este): " << este.getBrain(2) << std::endl << std::endl;
@@ -181,7 +150,6 @@ int main()
 	std::cout << "Idea 2 (este): " << este.getBrain(2) << std::endl << std::endl;
 
 	delete c_brain;
-	system("leaks -q animal\n");
-
+	system("leaks -q animal");
 	return (0);
 }

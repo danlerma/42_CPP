@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:45:58 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/12/12 19:26:43 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:43:39 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	Cat(std::string name);
 	Cat(const Cat& obj);
 	//destructor
-	virtual	~Cat();
+	~Cat();
 	//operators
 	Cat& operator=(const Cat& obj);
 	//getter
