@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:06:42 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/11/09 16:09:38 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:38:31 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return ("(Form) Error de más de 150.");
+	return ("(Form) GradeTooHigh -> Error de menos de 1.");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return ("(Form) Error de menos de 1.");
+	return ("(Form) GradeTooLow -> Error de más de 150.");
 }
 
 Form::Form(): name("Default"), s_grade(50), ex_grade(100)
@@ -54,7 +54,7 @@ Form::Form(int sgrade, int exgrade, std::string nam): name(nam), s_grade(sgrade)
 Form::Form(const Form &obj): name(obj.name), s_grade(obj.s_grade), ex_grade(obj.ex_grade)
 {
 	std::cout<<"Constructor por copia (Form)"<<std::endl;
-	this->sign = obj.sign;
+	this->sign = false;
 	const GradeTooLowException el;
 	const GradeTooHighException eh;
 	if (this->getS_grade() > 150 || this->getEx_grade() > 150)
@@ -94,7 +94,7 @@ void	Form::beSigned(Bureaucrat &obj)
 {
 	if (this->sign == true)
 	{
-		std::cout<<"Ya esta firmado."<<std::endl;
+		std::cout<< obj.getName() << " couldn’t sign "<<this->getName()<< " because <already signed>."<<std::endl;
 		return ;
 	}
 	if (obj.getGrade() <= this->getS_grade())

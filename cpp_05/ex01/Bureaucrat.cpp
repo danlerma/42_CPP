@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:42:46 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/11/09 16:17:37 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:20:53 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,18 @@
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("(Bureaucrat) Error de más de 150.");
+	return ("(Bureaucrat) GradeTooHigh -> Error de menos de 1.");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("(Bureaucrat) Error de menos de 1.");
+	return ("(Bureaucrat) GradeTooLow -> Error de más de 150.");
 }
 
 Bureaucrat::Bureaucrat(): name("Default")
 {
 	std::cout << "Constructor por defecto (Bureaucrat)"<< std::endl;
 	this->grade = 75;
-	const GradeTooLowException el;
-	const GradeTooHighException eh;
-	if (this->getGrade() > 150)
-		throw(el);
-	else if (this->getGrade() < 1)
-		throw(eh);
 }
 
 Bureaucrat::~Bureaucrat()
@@ -39,10 +33,17 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Destructor (Bureaucrat)"<< std::endl;
 }
 
-Bureaucrat::Bureaucrat(int grade, std::string nam): name(nam)
+Bureaucrat::Bureaucrat(int grade, std::string nam): name(nam), grade(grade)
 {
 	std::cout << "Constructor personalizado (Bureaucrat)"<< std::endl;
-	this->grade = grade;
+	const GradeTooLowException el;
+	const GradeTooHighException eh;
+	if (this->getGrade() > 150)
+		throw(el);
+	else if (this->getGrade() < 1)
+		throw(eh);
+	else
+		this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& obj): name(obj.getName())
@@ -84,8 +85,7 @@ int	Bureaucrat::getGrade() const
 
 void	Bureaucrat::increment(int grade)
 {
-
-	if ((this->getGrade() - grade) >= 1)
+	if ((this->getGrade() - grade) > 1)
 		this->grade = this->grade - grade;
 	else
 	{
@@ -96,13 +96,19 @@ void	Bureaucrat::increment(int grade)
 
 void	Bureaucrat::decrement(int grade)
 {
-	if ((this->getGrade() + grade) <= 150)
+	if ((this->getGrade() + grade) < 150)
 		this->grade = this->grade + grade;
 	else
 	{
 		const GradeTooLowException ex;
 		throw(ex);
 	}
+}
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& instance)
+{
+	os << instance.getName() << ", bureaucrat grade " << instance.getGrade()  << ".";
+	return (os);
 }
 
 void	Bureaucrat::signForm(Form &f)

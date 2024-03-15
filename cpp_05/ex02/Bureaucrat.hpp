@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:16:41 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/11/09 13:48:31 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2024/03/15 17:55:35 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <string>
 # include <iostream>
 # include <exception>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -36,7 +36,8 @@ class Bureaucrat
 		void	setGrade(int grade);
 		void	increment(int grade);
 		void	decrement(int grade);
-		void	signForm(Form &sig);
+		void	signForm(AForm &sig);
+		void	executeForm(AForm const & form);
 		
 		class	GradeTooLowException: public std::exception
 		{
@@ -45,6 +46,12 @@ class Bureaucrat
 		};
 
 		class	GradeTooHighException: public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
+		class	NotSignedException: public std::exception
 		{
 			public:
 				virtual const char* what() const throw();

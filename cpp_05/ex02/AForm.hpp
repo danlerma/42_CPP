@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 11:13:12 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/11/28 17:55:02 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/11/09 15:38:07 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,24 @@ class Bureaucrat;
 
 class AForm
 {
-	protected:
+	private:
 		const std::string	name;
 		bool	sign;
 		const int	s_grade;
 		const int	ex_grade;
 	public:
 		AForm(); //Default
-		virtual ~AForm(); // Destructor
+		~AForm(); // Destructor
 		AForm(int sgrade, int exgrade, std::string nam);
 		AForm(const AForm &obj);
 		AForm& operator=(AForm &obj);
 
-		virtual std::string	getName() = 0;
-		bool	getSign();
+		virtual const std::string	getName() const = 0;
+		bool	getSign() const;
 		int	getS_grade();
 		int	getEx_grade();
-		void	setS_grade(int num);
-		void	setEx_grade(int num);
 		void	beSigned(Bureaucrat &obj);
+		bool	execute(Bureaucrat const & executor) const;
 		
 		class	GradeTooLowException: public std::exception
 		{

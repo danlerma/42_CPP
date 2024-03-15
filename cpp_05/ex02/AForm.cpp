@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:06:42 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/11/28 18:16:22 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:34:20 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 const char* AForm::GradeTooHighException::what() const throw()
 {
-	return ("(AForm) Error de más de 150.");
+	return ("(AForm) GradeTooHigh -> Error de menos de 1.");
 }
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
-	return ("(AForm) Error de menos de 1.");
+	return ("(AForm) GradeTooLow -> Error de más de 150.");
 }
 
 AForm::AForm(): name("Default"), s_grade(50), ex_grade(100)
@@ -54,7 +54,7 @@ AForm::AForm(int sgrade, int exgrade, std::string nam): name(nam), s_grade(sgrad
 AForm::AForm(const AForm &obj): name(obj.name), s_grade(obj.s_grade), ex_grade(obj.ex_grade)
 {
 	std::cout<<"Constructor por copia (AForm)"<<std::endl;
-	this->sign = obj.sign;
+	this->sign = false;
 	const GradeTooLowException el;
 	const GradeTooHighException eh;
 	if (this->getS_grade() > 150 || this->getEx_grade() > 150)
@@ -70,12 +70,12 @@ AForm& AForm::operator=(AForm &obj)
 	return (*this);
 }
 
-std::string	AForm::getName()
+std::string	const AForm::getName() const
 {
 	return(this->name);
 }
 
-bool	AForm::getSign()
+bool	AForm::getSign() const
 {
 	return(this->sign);
 }
@@ -90,26 +90,11 @@ int	AForm::getEx_grade()
 	return(this->ex_grade);
 }
 
-std::string	AForm::getName()
-{
-	return(this->name);
-}
-
-void	AForm::setS_grade(int num)
-{
-	this->s_grade =num;
-}
-
-void	AForm::setEx_grade(int num): ex_grade(num)
-{
-
-}
-
 void	AForm::beSigned(Bureaucrat &obj)
 {
 	if (this->sign == true)
 	{
-		std::cout<<"Ya esta firmado."<<std::endl;
+		std::cout<< obj.getName() << " couldn’t sign "<<this->getName()<< " because <already signed>."<<std::endl;
 		return ;
 	}
 	if (obj.getGrade() <= this->getS_grade())
@@ -120,4 +105,26 @@ void	AForm::beSigned(Bureaucrat &obj)
 		const GradeTooLowException ex;
 		throw(ex);
 	}
+}
+
+bool AForm::execute(Bureaucrat const & executor) const
+{
+	if (this->sign == true && executor.getGrade() <= this->ex_grade)
+	{
+		std::cout << "Form executed" << std::endl;
+		return (true);
+	}
+	else
+	{
+		GradeTooLowException ex;
+		std::cout << "No se puede ejecutar." << std::endl;
+		throw(ex);
+		return (false);
+	}
+}
+
+std::ostream& operator<<(std::ostream& os, const AForm& instance) 
+{
+	os << instance.getName();
+	return (os);
 }

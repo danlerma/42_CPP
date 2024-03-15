@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:36 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/11/09 16:18:48 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:34:36 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,35 @@ static void	O_Bureaucrat()
 	Bureaucrat	bur4;
 
 	std::cout <<std::endl;
+	try{
+		Bureaucrat cons1(160, "cosntructor ex");
+	} catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		Bureaucrat cons2(0, "cosntructor ex2");
+	} catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+
 	std::cout<<"El burocrata "<<bur1->getName()<<" tiene el grado "<<bur1->getGrade()<<std::endl;
 	try{
 		bur1->decrement(20);
-	} catch (const Bureaucrat::GradeTooLowException ex){
+	} catch (std::exception& ex){
 		std::cerr << ex.what() << '\n';
 	}
 	std::cout<<"El burocrata "<<bur1->getName()<<" tiene el grado "<<bur1->getGrade()<<std::endl<<std::endl;
 	std::cout<<"El burocrata "<<bur2->getName()<<" tiene el grado "<<bur2->getGrade()<<std::endl;
 	try{
 		bur2->increment(40);
-	} catch (const Bureaucrat::GradeTooHighException ex){
+	} catch (std::exception& ex){
 		std::cerr << ex.what() << '\n';
 	}
 	std::cout<<"El burocrata "<<bur2->getName()<<" tiene el grado "<<bur2->getGrade()<<std::endl<<std::endl;
 	std::cout<<"El burocrata "<<bur3->getName()<<" tiene el grado "<<bur3->getGrade()<<std::endl;
 	try{
 		bur3->decrement(160);
-	} catch (const Bureaucrat::GradeTooLowException ex){
+	} catch (std::exception& ex){
 		std::cerr << ex.what() << '\n';
 	}
 	std::cout<<"El burocrata "<<bur3->getName()<<" tiene el grado "<<bur3->getGrade()<<std::endl<<std::endl;
@@ -46,7 +57,7 @@ static void	O_Bureaucrat()
 	std::cout<<"El burocrata "<<bur4.getName()<<" tiene el grado "<<bur4.getGrade()<<std::endl;
 	try{
 		bur4.increment(1);
-	} catch (const Bureaucrat::GradeTooHighException ex){
+	} catch (std::exception& ex){
 		std::cerr << ex.what() << '\n';
 	}
 	std::cout<<"El burocrata "<<bur4.getName()<<" tiene el grado "<<bur4.getGrade()<<std::endl<<std::endl;
@@ -64,8 +75,32 @@ static void	O_Form()
 	Bureaucrat	*bur = new Bureaucrat(50, "Juan Carlos");
 
 	std::cout <<std::endl;
+	try{
+		Form	cons_ex(151, 75, "Excep_cons");
+	} catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		Form	cons_ex2(20, 151, "Excep_cons2");
+	} catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		Form	cons_ex3(0, 75, "Excep_cons3");
+	} catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		Form	cons_ex4(60, 0, "Excep_cons4");
+	} catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+
+	std::cout <<std::endl;
+
 	std::cout<<"Form "<<form1->getName()<<" tiene el grado para firmar "<<form1->getS_grade()<<" y el grado para ejecutar "<<form1->getEx_grade()<<" la firma es "<<form1->getSign()<<std::endl;
 	form1->beSigned(*bur);
+	std::cout << "Se ha lanzado la firma"<<std::endl;
 	form1->beSigned(*bur);
 	std::cout<<"Form "<<form1->getName()<<" tiene el grado para firmar "<<form1->getS_grade()<<" y el grado para ejecutar "<<form1->getEx_grade()<<" la firma es "<<form1->getSign()<<std::endl<<std::endl;
 	std::cout<<"Form "<<form2->getName()<<" tiene el grado para firmar "<<form2->getS_grade()<<" y el grado para ejecutar "<<form2->getEx_grade()<<" la firma es "<<form2->getSign()<<std::endl;
@@ -77,13 +112,13 @@ static void	O_Form()
 	std::cout<<"Form "<<form4.getName()<<" tiene el grado para firmar "<<form4.getS_grade()<<" y el grado para ejecutar "<<form4.getEx_grade()<<" la firma es "<<form4.getSign()<<std::endl;
 	try{
 		bur->increment(50);
-	} catch (const Bureaucrat::GradeTooHighException ex){
+	} catch (std::exception& ex){
 		std::cerr << ex.what() << '\n';
 	}
 	try{
 		bur->increment(49);
 		bur->signForm(form4);
-	} catch (const Bureaucrat::GradeTooHighException ex){
+	} catch (std::exception& ex){
 		std::cerr << ex.what() << '\n';
 	}
 	std::cout<<"Form "<<form4.getName()<<" tiene el grado para firmar "<<form4.getS_grade()<<" y el grado para ejecutar "<<form4.getEx_grade()<<" la firma es "<<form4.getSign()<<std::endl<<std::endl;
@@ -95,6 +130,7 @@ static void	O_Form()
 
 int main(void)
 {
+	std::cout << false << "-" << true << std::endl;
 	std::cout<<"------------- Errores en Bureaucrat (decrement increment) -------------"<<std::endl;
 	O_Bureaucrat();
 	std::cout<<"------------- Errores en Form (be signed) -------------"<<std::endl;

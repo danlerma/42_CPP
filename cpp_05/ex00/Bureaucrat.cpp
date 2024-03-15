@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:42:46 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/11/09 14:36:50 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:14:26 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,18 @@
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("(Bureaucrat) Error de más de 150.");
+	return ("(Bureaucrat) GradeTooHigh -> Error de menos de 1.");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("(Bureaucrat) Error de menos de 1.");
+	return ("(Bureaucrat) GradeTooLow -> Error de más de 150.");
 }
 
 Bureaucrat::Bureaucrat(): name("Default")
 {
 	std::cout << "Constructor por defecto (Bureaucrat)"<< std::endl;
 	this->grade = 75;
-	const GradeTooLowException el;
-	const GradeTooHighException eh;
-	if (this->getGrade() > 150)
-		throw(el);
-	else if (this->getGrade() < 1)
-		throw(eh);
 }
 
 Bureaucrat::~Bureaucrat()
@@ -39,17 +33,22 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Destructor (Bureaucrat)"<< std::endl;
 }
 
-Bureaucrat::Bureaucrat(int grade, std::string nam): name(nam)
+Bureaucrat::Bureaucrat(int grade, std::string nam): name(nam), grade(grade)
 {
 	std::cout << "Constructor personalizado (Bureaucrat)"<< std::endl;
-	this->grade = grade;
+	const GradeTooLowException el;
+	const GradeTooHighException eh;
+	if (this->getGrade() > 150)
+		throw(el);
+	else if (this->getGrade() < 1)
+		throw(eh);
+	else
+		this->grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& obj): name(obj.getName())
+Bureaucrat::Bureaucrat(const Bureaucrat& obj): name(obj.name), grade(obj.grade)
 {
 	std::cout << "Constructor por copia (Bureaucrat)"<< std::endl;
-	// this->name = obj.getName();
-	this->grade = obj.getGrade();
 	const GradeTooLowException el;
 	const GradeTooHighException eh;
 	if (this->getGrade() > 150)
@@ -61,7 +60,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat& obj): name(obj.getName())
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat&	obj)
 {
 	std::cout << "Operador por asignación (Bureaucrat)"<< std::endl;
-	// this->name = obj.name;
 	this->grade = obj.getGrade();
 	const GradeTooLowException el;
 	const GradeTooHighException eh;
@@ -102,4 +100,10 @@ void	Bureaucrat::decrement(int grade)
 		const GradeTooLowException ex;
 		throw(ex);
 	}
+}
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& instance)
+{
+	os << instance.getName() << ", bureaucrat grade " << instance.getGrade()  << ".";
+	return (os);
 }
