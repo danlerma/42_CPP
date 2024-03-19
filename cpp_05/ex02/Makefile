@@ -6,7 +6,7 @@
 #    By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/18 12:01:47 by dlerma-c          #+#    #+#              #
-#    Updated: 2024/03/15 16:45:09 by dlerma-c         ###   ########.fr        #
+#    Updated: 2024/03/19 19:40:16 by dlerma-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ NAME = aform
 #                                    SRCS                                      #
 #··············································································#
 
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
+	RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 #··············································································#

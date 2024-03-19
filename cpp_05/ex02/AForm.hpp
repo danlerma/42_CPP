@@ -34,12 +34,13 @@ class AForm
 		AForm(const AForm &obj);
 		AForm& operator=(AForm &obj);
 
-		virtual const std::string	getName() const = 0;
+		std::string	const getName() const;
 		bool	getSign() const;
-		int	getS_grade();
-		int	getEx_grade();
+		int	getS_grade() const; 
+		int	getEx_grade() const;
 		void	beSigned(Bureaucrat &obj);
 		bool	execute(Bureaucrat const & executor) const;
+		virtual void	executeSmth() const = 0;
 		
 		class	GradeTooLowException: public std::exception
 		{

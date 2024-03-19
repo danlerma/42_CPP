@@ -6,16 +6,20 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:36 by dlerma-c          #+#    #+#             */
-/*   Updated: 2024/03/15 18:39:32 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2024/03/19 19:46:03 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 static void	O_Bureaucrat()
 {
 	Bureaucrat	*bur1 = new Bureaucrat();
+	std::cout << "------" << std::endl;
 	Bureaucrat	*bur2 = new Bureaucrat(30, "Rodolfo");
 	Bureaucrat	*bur3 = new Bureaucrat(*bur1);
 	Bureaucrat	bur4;
@@ -66,67 +70,131 @@ static void	O_Bureaucrat()
 	delete bur3;
 }
 
-// static void	O_Form()
-// {
-// 	Form	*form1 = new Form();
-// 	Form	*form2 = new Form(30, 75, "Formulario");
-// 	Form	*form3 = new Form(*form1);
-// 	Form	form4;
-// 	Bureaucrat	*bur = new Bureaucrat(50, "Juan Carlos");
+void	O_file()
+{
+	Bureaucrat max_bur(1,"MAX_GRADE_BUR");
+	Bureaucrat min_bur(150,"MIN_GRADE_BUR");
+	ShrubberyCreationForm *tree_file = new ShrubberyCreationForm("TREE_FILE");
+	RobotomyRequestForm *robot = new RobotomyRequestForm("ROBOT_RANDOM");
+	PresidentialPardonForm *president = new PresidentialPardonForm("ROBOT_RANDOM");
+	
+	std::cout << "----------- Pruebas TREE -------------" << std::endl;
+	try{
+		min_bur.signForm(*tree_file);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		min_bur.executeForm(*tree_file);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		max_bur.signForm(*tree_file);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		max_bur.signForm(*tree_file);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		min_bur.executeForm(*tree_file);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		max_bur.executeForm(*tree_file);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
 
-// 	std::cout <<std::endl;
-// 	try{
-// 		Form	cons_ex(151, 75, "Excep_cons");
-// 	} catch (std::exception& ex){
-// 		std::cerr << ex.what() << '\n';
-// 	}
-// 	try{
-// 		Form	cons_ex2(20, 151, "Excep_cons2");
-// 	} catch (std::exception& ex){
-// 		std::cerr << ex.what() << '\n';
-// 	}
-// 	try{
-// 		Form	cons_ex3(0, 75, "Excep_cons3");
-// 	} catch (std::exception& ex){
-// 		std::cerr << ex.what() << '\n';
-// 	}
-// 	try{
-// 		Form	cons_ex4(60, 0, "Excep_cons4");
-// 	} catch (std::exception& ex){
-// 		std::cerr << ex.what() << '\n';
-// 	}
 
-// 	std::cout <<std::endl;
+	std::cout << std::endl << "----------- Pruebas ROBOT -------------" << std::endl;
+	try{
+		min_bur.signForm(*robot);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		min_bur.executeForm(*robot);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		max_bur.signForm(*robot);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		max_bur.signForm(*robot);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		min_bur.executeForm(*robot);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		max_bur.executeForm(*robot);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
 
-// 	std::cout<<"Form "<<form1->getName()<<" tiene el grado para firmar "<<form1->getS_grade()<<" y el grado para ejecutar "<<form1->getEx_grade()<<" la firma es "<<form1->getSign()<<std::endl;
-// 	form1->beSigned(*bur);
-// 	std::cout << "Se ha lanzado la firma"<<std::endl;
-// 	form1->beSigned(*bur);
-// 	std::cout<<"Form "<<form1->getName()<<" tiene el grado para firmar "<<form1->getS_grade()<<" y el grado para ejecutar "<<form1->getEx_grade()<<" la firma es "<<form1->getSign()<<std::endl<<std::endl;
-// 	std::cout<<"Form "<<form2->getName()<<" tiene el grado para firmar "<<form2->getS_grade()<<" y el grado para ejecutar "<<form2->getEx_grade()<<" la firma es "<<form2->getSign()<<std::endl;
-// 	bur->signForm(*form2);
-// 	std::cout<<"Form "<<form2->getName()<<" tiene el grado para firmar "<<form2->getS_grade()<<" y el grado para ejecutar "<<form2->getEx_grade()<<" la firma es "<<form2->getSign()<<std::endl<<std::endl;
-// 	bur->signForm(*form3);
-// 	std::cout<<"Form "<<form3->getName()<<" tiene el grado para firmar "<<form3->getS_grade()<<" y el grado para ejecutar "<<form3->getEx_grade()<<" la firma es "<<form3->getSign()<<std::endl<<std::endl;
-// 	form4 = *form2;
-// 	std::cout<<"Form "<<form4.getName()<<" tiene el grado para firmar "<<form4.getS_grade()<<" y el grado para ejecutar "<<form4.getEx_grade()<<" la firma es "<<form4.getSign()<<std::endl;
-// 	try{
-// 		bur->increment(50);
-// 	} catch (std::exception& ex){
-// 		std::cerr << ex.what() << '\n';
-// 	}
-// 	try{
-// 		bur->increment(49);
-// 		bur->signForm(form4);
-// 	} catch (std::exception& ex){
-// 		std::cerr << ex.what() << '\n';
-// 	}
-// 	std::cout<<"Form "<<form4.getName()<<" tiene el grado para firmar "<<form4.getS_grade()<<" y el grado para ejecutar "<<form4.getEx_grade()<<" la firma es "<<form4.getSign()<<std::endl<<std::endl;
-// 	delete form1;
-// 	delete form2;
-// 	delete form3;
-// 	delete bur;
-// }
+std::cout << std::endl << "----------- Pruebas ROBOT -------------" << std::endl;
+	try{
+		min_bur.signForm(*president);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		min_bur.executeForm(*president);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		max_bur.signForm(*president);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		max_bur.signForm(*president);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		min_bur.executeForm(*president);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+	try{
+		max_bur.executeForm(*president);
+	
+	}catch (std::exception& ex){
+		std::cerr << ex.what() << '\n';
+	}
+
+
+}
 
 int main(void)
 {
@@ -135,5 +203,7 @@ int main(void)
 	O_Bureaucrat();
 	std::cout<<"------------- Errores en Form (be signed) -------------"<<std::endl;
 	// O_Form();
+	std::cout<<"------------- Errores en File -------------"<<std::endl;
+	O_file();
 	return (0);
 }

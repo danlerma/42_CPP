@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:42:46 by dlerma-c          #+#    #+#             */
-/*   Updated: 2024/03/15 17:56:24 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2024/03/19 19:32:04 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 	return ("(Bureaucrat) GradeTooLow -> Error de más de 150.");
 }
 
+const char* Bureaucrat::NotSignedException::what() const throw()
+{
+	return ("(Bureaucrat) No esta firmado.");
+}
+
 Bureaucrat::Bureaucrat(): name("Default")
 {
 	std::cout << "Constructor por defecto (Bureaucrat)"<< std::endl;
@@ -34,7 +39,7 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Destructor (Bureaucrat)"<< std::endl;
 }
 
-Bureaucrat::Bureaucrat(int grade, std::string nam): name(nam)
+Bureaucrat::Bureaucrat(int grade, std::string nam): name(nam), grade(grade)
 {
 	std::cout << "Constructor personalizado (Bureaucrat)"<< std::endl;
 	const GradeTooLowException el;
@@ -117,15 +122,13 @@ void	Bureaucrat::signForm(AForm &f)
 	try
 	{
 		f.beSigned(*this);
+		if (f.getSign() != true)
+			std::cout << this->getName() << " couldn’t sign " << f.getName()  << " because (is not valid)" << std::endl;
 	}
 	catch(const AForm::GradeTooLowException e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	if (f.getSign() == true)
-		std::cout << this->getName() << " signed " << f.getName() << std::endl;
-	else
-		std::cout << this->getName() << " couldn’t sign " << f.getName()  << " because (is not valid)" << std::endl;
 }
 
 void	Bureaucrat::executeForm(AForm const& form)
@@ -133,15 +136,15 @@ void	Bureaucrat::executeForm(AForm const& form)
 	if (form.getSign() == false)
 	{
 		NotSignedException ex;
-		std::cout << "No esta firmado por lo que no se puede ejecutar";
+		std::cout << "No esta firmado por lo que no se puede ejecutar" << std::endl;
 		throw(ex);
 	}
 	try{
 		bool result = form.execute(*this);
 		if (result == true)
-			std::cout << this->getName() << " executed " << form << std::endl;
+			std::cout << this->getName() << " executed " << form.getName() << std::endl;
 	}catch (std::exception &e)
 	{
-		std::cout << this->getName() <<  " bureaucrat couldn't sign form " << form << std::endl;
+		std::cout << this->getName() <<  " bureaucrat couldn't sign form " << form.getName() << std::endl;
 	}
 }

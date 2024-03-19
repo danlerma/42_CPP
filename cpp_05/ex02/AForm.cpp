@@ -80,12 +80,12 @@ bool	AForm::getSign() const
 	return(this->sign);
 }
 
-int	AForm::getS_grade()
+int	AForm::getS_grade() const
 {
 	return(this->s_grade);
 }
 
-int	AForm::getEx_grade()
+int	AForm::getEx_grade() const
 {
 	return(this->ex_grade);
 }
@@ -98,7 +98,10 @@ void	AForm::beSigned(Bureaucrat &obj)
 		return ;
 	}
 	if (obj.getGrade() <= this->getS_grade())
+	{
 		this->sign = true;
+		std::cout << this->getName() << " signed " << obj.getName() << std::endl;
+	}
 	else
 	{
 		this->sign = false;
@@ -112,12 +115,13 @@ bool AForm::execute(Bureaucrat const & executor) const
 	if (this->sign == true && executor.getGrade() <= this->ex_grade)
 	{
 		std::cout << "Form executed" << std::endl;
+		this->executeSmth();
 		return (true);
 	}
 	else
 	{
 		GradeTooLowException ex;
-		std::cout << "No se puede ejecutar." << std::endl;
+		std::cout << "No se puede ejecutar" << std::endl;
 		throw(ex);
 		return (false);
 	}
@@ -125,6 +129,16 @@ bool AForm::execute(Bureaucrat const & executor) const
 
 std::ostream& operator<<(std::ostream& os, const AForm& instance) 
 {
-	os << instance.getName();
+	os << instance.getName() << "is ";
+	if (instance.getSign() ==true)
+	{
+		os << "signed." << std::endl;
+	}
+	else
+	{
+		os  << "not signed." << std::endl;
+		os << "Grade to be signed: " << instance.getS_grade() << std::endl;
+		os << "Grade to be executed: " << instance.getEx_grade() << std::endl;
+	}
 	return (os);
 }
