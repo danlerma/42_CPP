@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:54:15 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/12/21 18:04:35 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:35:49 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,10 @@ int main()
 	std::cout << "Idea 1 (este): " << este.getBrain(1) << std::endl;
 	std::cout << "Idea 2 (este): " << este.getBrain(2) << std::endl << std::endl;
 
+		Dog basic;
+{
+Dog tmp = basic;
+}
 	delete c_brain;
 	system("leaks -q animal");
 	return (0);

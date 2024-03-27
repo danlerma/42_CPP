@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:09:36 by dlerma-c          #+#    #+#             */
-/*   Updated: 2024/03/21 19:05:45 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2024/03/21 19:04:06 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 static void	O_Bureaucrat()
 {
@@ -155,7 +156,7 @@ void	O_file()
 		std::cerr << ex.what() << '\n';
 	}
 
-std::cout << std::endl << "----------- Pruebas ROBOT -------------" << std::endl;
+std::cout << std::endl << "----------- Pruebas President -------------" << std::endl;
 	try{
 		min_bur.signForm(*president);
 	
@@ -204,6 +205,27 @@ int main(void)
 	O_Bureaucrat();
 	std::cout<<"------------- Errores en File -------------"<<std::endl;
 	O_file();
-	system("leaks -q aform\n");
+	std::cout<<"------------- Errores en Intern -------------"<<std::endl;
+
+	Intern interno;
+	AForm	*funo;
+	AForm	*fdos;
+	AForm	*ftres;
+	AForm	*fcuatro;
+
+	std::cout << std::endl;
+
+	funo = interno.makeForm("shrubbery creation", "funo");
+	std::cout << std::endl;
+	fdos = interno.makeForm("robotomy request", "fdos");
+	std::cout << std::endl;
+	ftres = interno.makeForm("president request", "ftres");
+	std::cout << std::endl;
+	fcuatro = interno.makeForm("fail", "fail");
+
+	delete funo;
+	delete ftres;
+	delete fdos;
+	system("leaks -q intern\n");
 	return (0);
 }

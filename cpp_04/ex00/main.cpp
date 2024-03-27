@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:54:15 by dlerma-c          #+#    #+#             */
-/*   Updated: 2023/12/21 18:04:36 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:35:31 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ int main()
 	std::cout << "wcat : " << std::endl << wcat.getType() << std::endl;
 	wcat.makeSound();
 	std::cout << std::endl;
+
 	delete animal;
 	delete wanimal;
 	delete w_cat;
 	delete dog_animal;
 	delete cat_animal;
-	system("leaks -q animal");
 	return (0);
 }
